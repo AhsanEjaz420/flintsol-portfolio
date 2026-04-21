@@ -294,41 +294,74 @@ const IndustriesSlider = () => {
     }
   };
 
+  // Generate gradient colors for each card based on index
+  const getGradient = (index) => {
+    const gradients = [
+      'from-orange-400/20 via-orange-500/10 to-transparent',
+      'from-blue-400/20 via-blue-500/10 to-transparent',
+      'from-purple-400/20 via-purple-500/10 to-transparent',
+      'from-emerald-400/20 via-emerald-500/10 to-transparent',
+      'from-pink-400/20 via-pink-500/10 to-transparent',
+      'from-cyan-400/20 via-cyan-500/10 to-transparent',
+      'from-amber-400/20 via-amber-500/10 to-transparent',
+      'from-indigo-400/20 via-indigo-500/10 to-transparent',
+      'from-rose-400/20 via-rose-500/10 to-transparent',
+      'from-teal-400/20 via-teal-500/10 to-transparent',
+      'from-violet-400/20 via-violet-500/10 to-transparent',
+      'from-fuchsia-400/20 via-fuchsia-500/10 to-transparent',
+      'from-lime-400/20 via-lime-500/10 to-transparent',
+      'from-sky-400/20 via-sky-500/10 to-transparent',
+      'from-red-400/20 via-red-500/10 to-transparent',
+    ];
+    return gradients[index % gradients.length];
+  };
+
+  const getHoverGradient = (index) => {
+    const gradients = [
+      'from-orange-500/40 to-orange-600/30',
+      'from-blue-500/40 to-blue-600/30',
+      'from-purple-500/40 to-purple-600/30',
+      'from-emerald-500/40 to-emerald-600/30',
+      'from-pink-500/40 to-pink-600/30',
+      'from-cyan-500/40 to-cyan-600/30',
+      'from-amber-500/40 to-amber-600/30',
+      'from-indigo-500/40 to-indigo-600/30',
+      'from-rose-500/40 to-rose-600/30',
+      'from-teal-500/40 to-teal-600/30',
+      'from-violet-500/40 to-violet-600/30',
+      'from-fuchsia-500/40 to-fuchsia-600/30',
+      'from-lime-500/40 to-lime-600/30',
+      'from-sky-500/40 to-sky-600/30',
+      'from-red-500/40 to-red-600/30',
+    ];
+    return gradients[index % gradients.length];
+  };
+
   return (
-    <section className="min-h-screen relative overflow-hidden flex flex-col">
-      {/* Enhanced Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
-        {/* Dynamic Floating Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-36 h-36 bg-orange-500/10 rounded-full blur-2xl animate-pulse delay-2000"></div>
-        <div className="absolute bottom-40 right-1/3 w-28 h-28 bg-green-500/10 rounded-full blur-xl animate-pulse delay-3000"></div>
-        
-        {/* Enhanced Grid Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="h-full w-full bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
-        </div>
-        
-        {/* Multiple Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-slate-900/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/30 via-transparent to-slate-900/30"></div>
+    <section className="min-h-screen relative overflow-hidden flex flex-col" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)' }}>
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4 flex flex-col flex-1 justify-center py-8">
         {/* Compact Header Section */}
         <div className="text-center mb-6 md:mb-8">
-          <div className="inline-flex items-center bg-blue-600/20 backdrop-blur-sm rounded-full px-4 py-2 mb-4 border border-blue-400/30">
-            <div className="w-2 h-2 bg-blue-400 rounded-full mr-2 animate-pulse"></div>
-            <span className="text-blue-300 text-xs font-medium tracking-wide">Featured Industries</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-orange-50 backdrop-blur-sm rounded-full px-6 py-2 mb-4 border border-orange-200 shadow-lg shadow-orange-100/50">
+            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+            <span className="text-orange-600 text-xs font-semibold" style={{ fontFamily: 'var(--font-sans)' }}>Featured Industries</span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 leading-tight">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
-              Industries We Revolutionize
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>
+            Industries We
+            <span className="block bg-gradient-to-r from-orange-500 via-orange-600 to-orange-400 bg-clip-text text-transparent">
+              Transform
             </span>
           </h2>
           
-          <p className="text-sm md:text-base lg:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-sans)', color: '#666666' }}>
             Transforming businesses across key sectors with innovative technology solutions.
           </p>
         </div>
@@ -338,22 +371,20 @@ const IndustriesSlider = () => {
           {/* Premium Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-30 bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-md hover:from-slate-700/90 hover:to-slate-600/90 text-white p-4 rounded-2xl border border-slate-600/50 hover:border-blue-400/60 transition-all duration-300 hover:scale-110 shadow-2xl shadow-slate-900/50 group"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-30 bg-white/90 backdrop-blur-md hover:bg-white text-gray-700 hover:text-orange-600 p-4 rounded-2xl border border-gray-200 hover:border-orange-300 transition-all duration-300 hover:scale-110 shadow-lg group"
           >
-            <ChevronLeft className="w-7 h-7 group-hover:text-blue-400 transition-colors duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <ChevronLeft className="w-7 h-7 transition-colors duration-300" />
           </button>
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-30 bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-md hover:from-slate-700/90 hover:to-slate-600/90 text-white p-4 rounded-2xl border border-slate-600/50 hover:border-blue-400/60 transition-all duration-300 hover:scale-110 shadow-2xl shadow-slate-900/50 group"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-30 bg-white/90 backdrop-blur-md hover:bg-white text-gray-700 hover:text-orange-600 p-4 rounded-2xl border border-gray-200 hover:border-orange-300 transition-all duration-300 hover:scale-110 shadow-lg group"
           >
-            <ChevronRight className="w-7 h-7 group-hover:text-blue-400 transition-colors duration-300" />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <ChevronRight className="w-7 h-7 transition-colors duration-300" />
           </button>
 
           {/* Enhanced Slider Content */}
-          <div className="overflow-hidden rounded-3xl bg-gradient-to-r from-slate-800/20 to-slate-900/20 backdrop-blur-sm border border-slate-700/30 p-8">
+          <div className="overflow-hidden p-8">
             <div 
               className="flex transition-all duration-700 ease-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -364,44 +395,46 @@ const IndustriesSlider = () => {
                   <div key={index} className="w-full flex-shrink-0">
                     <div className="flex justify-center px-4">
                       <div
-                        className="group relative bg-gradient-to-br from-slate-800/70 to-slate-900/70 backdrop-blur-md rounded-3xl p-8 border border-slate-700/50 hover:border-blue-400/60 transition-all duration-500 cursor-pointer hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 w-full max-w-sm h-80 flex items-center justify-center"
+                        className="group relative p-6 cursor-pointer rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden w-full max-w-sm h-80 flex items-center justify-center bg-white/70 border-white/50 hover:border-orange-200"
+                        style={{ transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}
                       >
-                        {/* Enhanced Glow Effects */}
-                        <div className={`absolute inset-0 bg-gradient-to-br ${industry.color} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        {/* Gradient Background */}
+                        <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(index)} opacity-50 group-hover:opacity-80 transition-opacity duration-500`}></div>
                         
+                        {/* Hover Glow Effect */}
+                        <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${getHoverGradient(index)} blur-xl`}></div>
+
                         {/* Card Content */}
-                        <div className="relative z-10 text-center flex flex-col items-center justify-center h-full">
-                          {/* Icon and Title Container - Moves up more on hover */}
-                          <div className="group-hover:-translate-y-8 transition-all duration-500 ease-out">
-                            <div className="text-6xl mb-6 group-hover:scale-110 transition-all duration-500 filter drop-shadow-lg flex items-center justify-center">
-                              {industry.icon}
-                            </div>
-                            
-                            <h3 className="text-white font-bold text-2xl mb-4 group-hover:text-blue-300 transition-colors duration-300 text-center">
-                              {industry.name}
-                            </h3>
-                          </div>
-                          
-                          {/* Description - Appears below on hover with full text */}
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 flex items-center justify-center">
-                            <p className="text-gray-400 text-xs leading-tight opacity-0 group-hover:opacity-100 group-hover:translate-y-16 translate-y-0 transition-all duration-700 delay-200 text-center whitespace-nowrap">
-                              {industry.description}
-                            </p>
+                        <div className="relative z-10 text-center">
+                          <div className={`text-4xl mb-4 transform transition-all duration-500 ${
+                            index === currentSlide ? 'scale-125 rotate-6' : 'scale-100'
+                          }`}>
+                            {industry.icon}
                           </div>
 
-                          {/* Interactive Element - Appears right below title on hover */}
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-12 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                            <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
-                          </div>
+                          <h3 className={`font-bold text-lg mb-2 transition-all duration-300 ${
+                            index === currentSlide 
+                              ? 'text-white scale-105' 
+                              : 'text-gray-800'
+                          }`} style={{ fontFamily: 'var(--font-sans)' }}>
+                            {industry.name}
+                          </h3>
+
+                          <p className={`text-sm leading-relaxed transition-all duration-500 ${
+                            index === currentSlide 
+                              ? 'text-white/90 opacity-100 translate-y-0' 
+                              : 'text-gray-600 opacity-100 translate-y-0'
+                          }`} style={{ fontFamily: 'var(--font-sans)' }}>
+                            {industry.description}
+                          </p>
+
+                          {/* Hover Indicator */}
+                          <div className={`mt-4 w-8 h-1 rounded-full mx-auto transition-all duration-500 ${
+                            index === currentSlide 
+                              ? 'bg-white w-16' 
+                              : 'bg-gradient-to-r from-orange-300 to-orange-500 w-8'
+                          }`}></div>
                         </div>
-
-                        {/* Enhanced Hover Border Effect */}
-                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/30 via-purple-400/30 to-orange-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 blur-sm"></div>
-                        
-                        {/* Corner Accents */}
-                        <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-blue-400/0 group-hover:border-blue-400/60 transition-all duration-500 rounded-tr-xl"></div>
-                        <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-purple-400/0 group-hover:border-purple-400/60 transition-all duration-500 rounded-bl-xl"></div>
                       </div>
                     </div>
                   </div>
@@ -416,42 +449,46 @@ const IndustriesSlider = () => {
                         .map((industry, index) => (
                         <div
                           key={index}
-                          className="group relative bg-gradient-to-br from-slate-800/70 to-slate-900/70 backdrop-blur-md rounded-3xl p-8 border border-slate-700/50 hover:border-blue-400/60 transition-all duration-500 cursor-pointer hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 h-80 flex items-center justify-center"
+                          className="group relative p-6 cursor-pointer rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden h-80 flex items-center justify-center bg-white/70 border-white/50 hover:border-orange-200"
+                          style={{ transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}
                         >
-                          {/* Enhanced Glow Effects */}
-                          <div className={`absolute inset-0 bg-gradient-to-br ${industry.color} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
-                          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          {/* Gradient Background */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${getGradient(slideIndex * 3 + index)} opacity-50 group-hover:opacity-80 transition-opacity duration-500`}></div>
                           
+                          {/* Hover Glow Effect */}
+                          <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br ${getHoverGradient(slideIndex * 3 + index)} blur-xl`}></div>
+
                           {/* Card Content */}
-                          <div className="relative z-10 text-center flex flex-col items-center justify-center h-full">
-                            {/* Icon and Title Container - Moves up more on hover */}
-                            <div className="group-hover:-translate-y-8 transition-all duration-500 ease-out">
-                              <div className="text-6xl mb-6 group-hover:scale-110 transition-all duration-500 filter drop-shadow-lg flex items-center justify-center">
-                                {industry.icon}
-                              </div>
-                              
-                              <h3 className="text-white font-bold text-2xl mb-4 group-hover:text-blue-300 transition-colors duration-300 text-center">
-                                {industry.name}
-                              </h3>
+                          <div className="relative z-10 text-center">
+                            <div className={`text-4xl mb-4 transform transition-all duration-500 ${
+                              false ? 'scale-125 rotate-6' : 'scale-100'
+                            }`}>
+                              {industry.icon}
                             </div>
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-12 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300">
-                              <div className="w-12 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
-                            </div>
-                            
-                          {/* Description - Appears below on hover with full text */}
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4 flex items-center justify-center">
-                            <p className="text-gray-400 text-xs leading-tight opacity-0 group-hover:opacity-100 group-hover:translate-y-16 translate-y-0 transition-all duration-700 delay-200 text-center whitespace-nowrap">
+
+                            <h3 className={`font-bold text-lg mb-2 transition-all duration-300 ${
+                              false 
+                                ? 'text-white scale-105' 
+                                : 'text-gray-800'
+                            }`} style={{ fontFamily: 'var(--font-sans)' }}>
+                              {industry.name}
+                            </h3>
+
+                            <p className={`text-sm leading-relaxed transition-all duration-500 ${
+                              false 
+                                ? 'text-white/90 opacity-100 translate-y-0' 
+                                : 'text-gray-600 opacity-100 translate-y-0'
+                            }`} style={{ fontFamily: 'var(--font-sans)' }}>
                               {industry.description}
                             </p>
-                          </div>
-                          </div>
 
-                          {/* Enhanced Hover Border Effect */}
-                          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/30 via-purple-400/30 to-orange-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10 blur-sm"></div>
-                          
-                          {/* Corner Accents */}
-                          <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-blue-400/0 group-hover:border-blue-400/60 transition-all duration-500 rounded-tr-xl"></div>
-                          <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-purple-400/0 group-hover:border-purple-400/60 transition-all duration-500 rounded-bl-xl"></div>
+                            {/* Hover Indicator */}
+                            <div className={`mt-4 w-8 h-1 rounded-full mx-auto transition-all duration-500 ${
+                              false 
+                                ? 'bg-white w-16' 
+                                : 'bg-gradient-to-r from-orange-300 to-orange-500 w-8'
+                            }`}></div>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -469,12 +506,12 @@ const IndustriesSlider = () => {
                 onClick={() => setCurrentSlide(index)}
                 className={`relative transition-all duration-500 rounded-full w-2 h-2 md:w-3 md:h-3 ${
                   currentSlide === index 
-                    ? 'bg-gradient-to-r from-blue-400 to-purple-400 shadow-lg shadow-blue-500/50 scale-110' 
-                    : 'bg-slate-600 hover:bg-slate-500 hover:scale-110'
+                    ? 'bg-gradient-to-r from-orange-400 to-orange-600 shadow-lg shadow-orange-500/50 scale-110' 
+                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
                 }`}
               >
                 {currentSlide === index && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full animate-pulse"></div>
                 )}
               </button>
             ))}
@@ -485,10 +522,12 @@ const IndustriesSlider = () => {
         <div className="text-center mt-6 md:mt-8">
           <button 
             onClick={() => navigate('/industries')}
-            className="group inline-flex items-center gap-2 text-blue-300 hover:text-orange-400 transition-all duration-300 text-sm md:text-base font-medium"
+            className="relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg shadow-orange-200 hover:shadow-orange-300 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+            style={{ fontFamily: 'var(--font-sans)' }}
           >
-            <span>View All Industries</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            <span className="relative z-10">View All Industries</span>
+            <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
           </button>
         </div>
       </div>

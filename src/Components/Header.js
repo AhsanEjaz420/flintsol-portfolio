@@ -122,7 +122,7 @@ const Header = () => {
       width: "100%",
       zIndex: 1000,
       transition: "all 0.3s ease",
-      borderBottom: `1px solid ${isOverWhiteSection ? 'rgba(59, 130, 246, 0.3)' : 'rgba(249, 115, 22, 0.1)'}`,
+      borderBottom: `1px solid ${isOverWhiteSection ? 'rgba(59, 130, 246, 0.3)' : 'rgba(255, 107, 53, 0.12)'}`,
     };
 
     if (isOverWhiteSection) {
@@ -673,11 +673,11 @@ const Header = () => {
           position: relative;
           z-index: 1003;
           border-radius: 6px;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
         }
 
         .menu-toggle:hover {
-          background: rgba(249, 115, 22, 0.1);
+          background: rgba(255, 107, 53, 0.12);
         }
 
         .hamburger-lines {
@@ -694,7 +694,7 @@ const Header = () => {
           height: 3px;
           background-color: #ffffff;
           border-radius: 2px;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
         }
 
         .menu-toggle:hover .hamburger {
@@ -705,7 +705,7 @@ const Header = () => {
           color: #ffffff;
           font-size: 2rem;
           font-weight: bold;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           line-height: 1;
         }
 
@@ -742,7 +742,7 @@ const Header = () => {
           color: #e2e8f0;
           text-decoration: none;
           font-weight: 500;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           padding: 0.5rem 1rem;
           border-radius: 0.5rem;
           position: relative;
@@ -754,7 +754,7 @@ const Header = () => {
 
         .nav-links a:hover {
           color: #f97316;
-          background: rgba(249, 115, 22, 0.1);
+          background: rgba(255, 107, 53, 0.12);
           transform: translateY(-2px);
         }
 
@@ -766,7 +766,7 @@ const Header = () => {
           width: 0;
           height: 2px;
           background: linear-gradient(90deg, #f97316, #fb923c);
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           transform: translateX(-50%);
         }
 
@@ -808,25 +808,27 @@ const Header = () => {
           position: absolute;
           top: 100%;
           left: 50%;
-          transform: translateX(-50%) translateY(-10px);
+          transform: translateX(-50%) translateY(-10px) scale(0.95);
           width: 900px;
           background: linear-gradient(
             135deg,
-            #0f172a 0%,
-            #1e293b 50%,
-            #334155 100%
+            rgba(15, 23, 42, 0.98) 0%,
+            rgba(30, 41, 59, 0.98) 50%,
+            rgba(51, 65, 85, 0.98) 100%
           );
-          border-radius: 16px;
+          border-radius: var(--radius-lg, 1.5rem);
           padding: 0;
           margin-top: 0.5rem;
           opacity: 0;
           visibility: hidden;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.4s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
-            0 0 0 1px rgba(249, 115, 22, 0.1),
+            0 0 0 1px rgba(255, 107, 53, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(20px);
+          backdrop-filter: blur(30px) saturate(180%);
+          -webkit-backdrop-filter: blur(30px) saturate(180%);
           z-index: 1000;
+          border: 1px solid rgba(255, 107, 53, 0.1);
         }
 
         .mega-dropdown-content {
@@ -838,18 +840,18 @@ const Header = () => {
 
         .services-list {
           flex: 1;
-          background: rgba(15, 23, 42, 0.8);
-          padding: 2rem 0;
-          border-right: 1px solid rgba(249, 115, 22, 0.1);
+          background: rgba(15, 23, 42, 0.6);
+          padding: var(--space-lg, 2rem) 0;
+          border-right: 1px solid rgba(255, 107, 53, 0.15);
         }
 
         .service-item {
           display: flex;
           align-items: center;
-          gap: 1rem;
-          padding: 1rem 1.5rem;
+          gap: var(--space-md, 1rem);
+          padding: var(--space-md, 1rem) 1.5rem;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           border-left: 3px solid transparent;
           position: relative;
           overflow: hidden;
@@ -864,10 +866,10 @@ const Header = () => {
           height: 100%;
           background: linear-gradient(
             90deg,
-            rgba(249, 115, 22, 0.1) 0%,
+            rgba(255, 107, 53, 0.12) 0%,
             transparent 100%
           );
-          transition: width 0.3s ease;
+          transition: width 0.3s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
           z-index: 0;
         }
 
@@ -878,9 +880,9 @@ const Header = () => {
 
         .service-item:hover,
         .service-item.active {
-          background: rgba(249, 115, 22, 0.05);
-          border-left-color: #f97316;
-          transform: translateX(5px);
+          background: rgba(255, 107, 53, 0.08);
+          border-left-color: var(--color-primary, #ff6b35);
+          transform: translateX(8px);
         }
 
         .service-item:hover .service-icon,
@@ -897,7 +899,7 @@ const Header = () => {
 
         .service-icon {
           font-size: 1.5rem;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           z-index: 1;
           position: relative;
         }
@@ -906,7 +908,7 @@ const Header = () => {
           color: #e2e8f0;
           font-weight: 500;
           font-size: 0.95rem;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           z-index: 1;
           position: relative;
         }
@@ -921,7 +923,7 @@ const Header = () => {
         .service-detail {
           opacity: 0;
           visibility: hidden;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           position: absolute;
           top: 2rem;
           left: 2rem;
@@ -964,7 +966,7 @@ const Header = () => {
           margin-bottom: 0.75rem;
           padding-left: 1.5rem;
           position: relative;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
         }
 
         .service-detail li::before {
@@ -973,12 +975,12 @@ const Header = () => {
           left: 0;
           color: #f97316;
           font-weight: bold;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
         }
 
         .service-detail li:hover {
           color: #e2e8f0;
-          transform: translateX(5px);
+          transform: translateX(8px);
         }
 
         .service-detail li:hover::before {
@@ -990,11 +992,11 @@ const Header = () => {
           color: white;
           border: none;
           padding: 0.75rem 1.5rem;
-          border-radius: 8px;
+          border-radius: var(--radius-md, 8px);
           font-weight: 600;
           font-size: 0.9rem;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
           position: relative;
           overflow: hidden;
@@ -1038,9 +1040,9 @@ const Header = () => {
           font-weight: 500;
           padding: 0.25rem 0.75rem;
           border-radius: 1rem;
-          background: rgba(249, 115, 22, 0.1);
+          background: rgba(255, 107, 53, 0.12);
           border: 1px solid rgba(249, 115, 22, 0.2);
-          transition: all 0.3s ease;
+          transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           white-space: nowrap;
         }
 
@@ -1057,14 +1059,14 @@ const Header = () => {
                    .mobile-quote-btn {
              background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
              color: #ffffff !important;
-             padding: 1rem 1.5rem;
-             border-radius: 12px;
+             padding: var(--space-md, 1rem) 1.5rem;
+             border-radius: var(--radius-lg, 1rem);
              font-weight: 600;
              text-align: center;
              box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
              border: none;
              margin-top: 0.5rem;
-             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+             transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
              position: relative;
              overflow: hidden;
            }
@@ -1093,7 +1095,7 @@ const Header = () => {
         /* Tablet Styles */
         @media (max-width: 1024px) {
           .nav-container {
-            padding: 1rem 1.5rem;
+            padding: var(--space-md, 1rem) 1.5rem;
           }
 
           .mega-dropdown {
@@ -1101,7 +1103,7 @@ const Header = () => {
           }
 
           .stats {
-            gap: 1rem;
+            gap: var(--space-md, 1rem);
           }
 
           .statsli {
@@ -1131,13 +1133,13 @@ const Header = () => {
                      .mobile-services-menu {
              display: block;
              background: rgba(15, 23, 42, 0.95);
-             border-radius: 12px;
+             border-radius: var(--radius-lg, 1rem);
              margin: 0.25rem 0;
              padding: 0;
              max-height: 0;
              overflow: hidden;
-             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-             border: 1px solid rgba(249, 115, 22, 0.1);
+             transition: all 0.4s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+             border: 1px solid rgba(255, 107, 53, 0.12);
              backdrop-filter: blur(10px);
              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
              z-index: 1004;
@@ -1146,7 +1148,7 @@ const Header = () => {
 
            .mobile-services-menu.open {
              max-height: 500px;
-             padding: 0.75rem 0;
+             padding: var(--space-md, 0.75rem) 0;
              border-color: rgba(249, 115, 22, 0.3);
              box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
            }
@@ -1154,12 +1156,12 @@ const Header = () => {
                      .mobile-service-item {
              display: flex;
              align-items: center;
-             gap: 0.75rem;
-             padding: 0.75rem 1rem;
+             gap: var(--space-md, 0.75rem);
+             padding: var(--space-sm, 0.75rem) 1rem;
              cursor: pointer;
-             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-             border-radius: 8px;
-             margin: 0.15rem 0.5rem;
+             transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+             border-radius: var(--radius-md, 8px);
+             margin: var(--space-xs, 0.15rem) var(--space-sm, 0.5rem);
              border: 1px solid transparent;
              position: relative;
              overflow: hidden;
@@ -1172,8 +1174,8 @@ const Header = () => {
             top: 0;
             width: 0;
             height: 100%;
-            background: linear-gradient(90deg, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, rgba(255, 107, 53, 0.12) 0%, transparent 100%);
+            transition: width 0.3s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
             z-index: 0;
           }
 
@@ -1182,16 +1184,16 @@ const Header = () => {
           }
 
           .mobile-service-item:hover {
-            background: rgba(249, 115, 22, 0.05);
+            background: rgba(255, 107, 53, 0.08);
             transform: translateX(8px);
             border-color: rgba(249, 115, 22, 0.3);
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.12);
           }
 
           .mobile-service-icon {
             font-size: 1.25rem;
             flex-shrink: 0;
-            transition: all 0.3s ease;
+            transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
             z-index: 1;
             position: relative;
           }
@@ -1213,13 +1215,13 @@ const Header = () => {
             color: #e2e8f0;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           }
 
           .mobile-service-desc {
             color: #94a3b8;
             font-size: 0.8rem;
-            transition: all 0.3s ease;
+            transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           }
 
           .mobile-service-item:hover .mobile-service-title {
@@ -1291,7 +1293,7 @@ const Header = () => {
              border-radius: 0.75rem;
              background: rgba(255, 255, 255, 0.05);
              margin-bottom: 0.25rem;
-             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+             transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
              border: 1px solid transparent;
              position: relative;
              overflow: hidden;
@@ -1305,8 +1307,8 @@ const Header = () => {
             top: 0;
             width: 0;
             height: 100%;
-            background: linear-gradient(90deg, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, rgba(255, 107, 53, 0.12) 0%, transparent 100%);
+            transition: width 0.3s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
             z-index: 0;
           }
 
@@ -1315,11 +1317,11 @@ const Header = () => {
           }
 
           .nav-links a:hover {
-            background: rgba(249, 115, 22, 0.05);
+            background: rgba(255, 107, 53, 0.08);
             transform: translateX(8px);
             border-color: rgba(249, 115, 22, 0.3);
             color: #f97316;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.12);
           }
 
                      .mobile-cta {

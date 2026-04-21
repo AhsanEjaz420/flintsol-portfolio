@@ -5,6 +5,7 @@ const CustomerSupportChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [showOptions, setShowOptions] = useState(true);
   const [sessionId] = useState(Date.now().toString());
   const [messages, setMessages] = useState([]);
@@ -125,21 +126,24 @@ const CustomerSupportChatbot = () => {
 
   // Handle opening animation
   const handleOpenChat = () => {
+    setIsClosing(false);
     setIsAnimating(true);
     setIsOpen(true);
-    // Reset animation state after animation completes
-    setTimeout(() => setIsAnimating(false), 800);
+    // Reset animation state after animation completes (faster)
+    setTimeout(() => setIsAnimating(false), 350);
   };
 
   // Handle closing animation
   const handleCloseChat = () => {
     if (isAnimating) return; // Prevent multiple animations
+    setIsClosing(true);
     setIsAnimating(true);
     setTimeout(() => {
       setIsOpen(false);
       setIsMinimized(false);
       setIsAnimating(false);
-    }, 600);
+      setIsClosing(false);
+    }, 300);
   };
 
   // System prompt for OpenAI to ensure relevant responses about Flint Sol
@@ -267,12 +271,12 @@ Respond in a friendly, professional tone that represents Flint Sol's brand.`;
 
   if (!isOpen) {
     return (
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 xl:bottom-16 xl:right-16 z-[9999]">
+      <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 lg:bottom-12 lg:right-12 xl:bottom-16 xl:right-16 z-[9999]">
         <button
           onClick={handleOpenChat}
-          className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:shadow-orange-500/25 transform hover:scale-110 transition-all duration-500 group button-float"
+          className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:shadow-orange-500/25 transform hover:scale-110 transition-all duration-300 group button-float"
         >
-          <MessageCircle size={20} className="sm:w-6 sm:h-6 transform group-hover:scale-110 transition-transform duration-300" />
+          <MessageCircle size={20} className="sm:w-6 sm:h-6 transform group-hover:scale-110 transition-transform duration-200" />
           <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 sm:h-6 sm:w-6 flex items-center justify-center animate-pulse shadow-lg">
             1
           </span>
@@ -290,40 +294,29 @@ Respond in a friendly, professional tone that represents Flint Sol's brand.`;
             : 'h-[380px] w-[300px] xs:h-[400px] xs:w-[320px] sm:h-[450px] sm:w-[360px] md:h-[500px] md:w-[400px] lg:h-[550px] lg:w-[420px] xl:h-[600px] xl:w-[450px]'
         }`}
         style={{
-          animation: isOpen && !isAnimating 
-            ? 'none' 
-            : isOpen 
-            ? 'slowPopupIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards'
-            : 'slowPopupOut 0.6s cubic-bezier(0.4, 0, 1, 1) forwards'
+          animation: isAnimating
+            ? (isClosing ? 'fastPopupOut 0.3s cubic-bezier(0.4, 0, 1, 1) forwards' : 'fastPopupIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards')
+            : 'none'
         }}
         onTouchStart={handleTouchStart}
       >
         {/* Custom keyframe animations */}
         <style jsx>{`
-          @keyframes slowPopupIn {
+          @keyframes fastPopupIn {
             0% {
               opacity: 0;
-              transform: translateY(60px) scale(0.7) rotate(-2deg);
+              transform: translateY(40px) scale(0.8) rotate(-1deg);
               box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             }
-            15% {
-              opacity: 0.2;
-              transform: translateY(45px) scale(0.75) rotate(-1deg);
+            50% {
+              opacity: 0.7;
+              transform: translateY(10px) scale(0.95) rotate(-0.5deg);
+              box-shadow: 0 20px 30px -10px rgba(255, 107, 53, 0.3);
             }
-            35% {
-              opacity: 0.5;
-              transform: translateY(25px) scale(0.85) rotate(-0.5deg);
-              box-shadow: 0 15px 25px -5px rgba(255, 107, 53, 0.2);
-            }
-            60% {
-              opacity: 0.8;
-              transform: translateY(8px) scale(0.95) rotate(0deg);
-              box-shadow: 0 25px 35px -8px rgba(255, 107, 53, 0.3);
-            }
-            85% {
-              opacity: 0.98;
-              transform: translateY(-3px) scale(1.03) rotate(0.5deg);
-              box-shadow: 0 35px 45px -12px rgba(255, 107, 53, 0.4);
+            80% {
+              opacity: 0.95;
+              transform: translateY(-2px) scale(1.02) rotate(0.2deg);
+              box-shadow: 0 35px 45px -15px rgba(255, 107, 53, 0.4);
             }
             100% {
               opacity: 1;
@@ -331,31 +324,21 @@ Respond in a friendly, professional tone that represents Flint Sol's brand.`;
               box-shadow: 0 40px 60px -20px rgba(255, 107, 53, 0.5);
             }
           }
-          
-          @keyframes slowPopupOut {
+
+          @keyframes fastPopupOut {
             0% {
               opacity: 1;
               transform: translateY(0) scale(1) rotate(0deg);
               box-shadow: 0 40px 60px -20px rgba(255, 107, 53, 0.5);
             }
-            25% {
-              opacity: 0.9;
-              transform: translateY(8px) scale(0.98) rotate(0.5deg);
-              box-shadow: 0 25px 35px -8px rgba(255, 107, 53, 0.3);
-            }
             50% {
-              opacity: 0.7;
-              transform: translateY(20px) scale(0.92) rotate(1deg);
-              box-shadow: 0 15px 25px -5px rgba(255, 107, 53, 0.2);
-            }
-            75% {
-              opacity: 0.4;
-              transform: translateY(35px) scale(0.8) rotate(1.5deg);
-              box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.2);
+              opacity: 0.6;
+              transform: translateY(15px) scale(0.9) rotate(0.5deg);
+              box-shadow: 0 15px 25px -8px rgba(255, 107, 53, 0.2);
             }
             100% {
               opacity: 0;
-              transform: translateY(50px) scale(0.7) rotate(2deg);
+              transform: translateY(40px) scale(0.75) rotate(1.5deg);
               box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             }
           }

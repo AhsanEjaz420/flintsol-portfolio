@@ -116,15 +116,15 @@ const ResourceAugmentationCalculator = () => {
                 <div
                   key={type.id}
                   onClick={() => setFormData({...formData, resourceType: type.id})}
-                  className={`p-6 rounded-lg border-2 cursor-pointer transition-all hover:shadow-lg ${
-                    formData.resourceType === type.id 
-                      ? 'border-blue-500 bg-blue-50' 
-                      : 'border-gray-200 bg-white hover:border-gray-300'
+                  className={`hover-lift p-6 rounded-xl border-2 cursor-pointer transition-all ${
+                    formData.resourceType === type.id
+                      ? 'border-orange-500 bg-orange-50 shadow-lg shadow-orange-500/20'
+                      : 'border-gray-200 bg-white hover:border-orange-300'
                   }`}
                 >
                   <div className="text-center">
                     <div className="text-3xl mb-3">{type.icon}</div>
-                    <h4 className="font-semibold text-gray-800">{type.title}</h4>
+                    <h4 className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>{type.title}</h4>
                   </div>
                 </div>
               ))}
@@ -144,15 +144,15 @@ const ResourceAugmentationCalculator = () => {
                 <div
                   key={level.id}
                   onClick={() => setFormData({...formData, experienceLevel: level.id})}
-                  className={`p-4 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md ${
-                    formData.experienceLevel === level.id 
-                      ? 'border-blue-500 bg-blue-50' 
-                      : 'border-gray-200 bg-white hover:border-gray-300'
+                  className={`hover-lift p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                    formData.experienceLevel === level.id
+                      ? 'border-orange-500 bg-orange-50 shadow-lg shadow-orange-500/20'
+                      : 'border-gray-200 bg-white hover:border-orange-300'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <h4 className="font-semibold text-gray-800">{level.title}</h4>
-                    <span className="text-sm text-gray-500">+{Math.round((level.multiplier - 1) * 100)}%</span>
+                    <h4 className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>{level.title}</h4>
+                    <span className="text-sm" style={{ color: '#666666' }}>+{Math.round((level.multiplier - 1) * 100)}%</span>
                   </div>
                 </div>
               ))}
@@ -170,19 +170,19 @@ const ResourceAugmentationCalculator = () => {
             <div className="flex items-center justify-center space-x-6">
               <button
                 onClick={() => setFormData({...formData, teamSize: Math.max(1, formData.teamSize - 1)})}
-                className="w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-xl font-bold"
+                className="button-press w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-xl font-bold transition-colors"
               >
                 -
               </button>
               <div className="text-center">
-                <div className="text-6xl font-bold text-blue-600">{formData.teamSize}</div>
+                <div className="text-6xl font-bold" style={{ fontFamily: 'var(--font-sans)', color: '#ff6b35' }}>{formData.teamSize}</div>
                 <div className="text-gray-600 mt-2">
                   {formData.teamSize === 1 ? 'Resource' : 'Resources'}
                 </div>
               </div>
               <button
                 onClick={() => setFormData({...formData, teamSize: formData.teamSize + 1})}
-                className="w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-xl font-bold"
+                className="button-press w-12 h-12 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-xl font-bold transition-colors"
               >
                 +
               </button>
@@ -202,17 +202,17 @@ const ResourceAugmentationCalculator = () => {
                 <div
                   key={duration.id}
                   onClick={() => setFormData({...formData, duration: duration.id})}
-                  className={`p-6 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md ${
-                    formData.duration === duration.id 
-                      ? 'border-blue-500 bg-blue-50' 
-                      : 'border-gray-200 bg-white hover:border-gray-300'
+                  className={`hover-lift p-6 rounded-xl border-2 cursor-pointer transition-all ${
+                    formData.duration === duration.id
+                      ? 'border-orange-500 bg-orange-50 shadow-lg shadow-orange-500/20'
+                      : 'border-gray-200 bg-white hover:border-orange-300'
                   }`}
                 >
                   <div className="text-center">
-                    <Calendar className="w-8 h-8 mx-auto mb-3 text-blue-600" />
-                    <h4 className="font-semibold text-gray-800 mb-2">{duration.title}</h4>
+                    <Calendar className="w-8 h-8 mx-auto mb-3" style={{ color: '#ff6b35' }} />
+                    <h4 className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>{duration.title}</h4>
                     {duration.discount > 0 && (
-                      <span className="text-green-600 text-sm">Save {Math.round(duration.discount * 100)}%</span>
+                      <span className="text-sm" style={{ color: '#16a34a' }}>Save {Math.round(duration.discount * 100)}%</span>
                     )}
                   </div>
                 </div>
@@ -233,18 +233,18 @@ const ResourceAugmentationCalculator = () => {
                 <div
                   key={engagement.id}
                   onClick={() => setFormData({...formData, engagement: engagement.id})}
-                  className={`p-4 rounded-lg border-2 cursor-pointer transition-all hover:shadow-md ${
-                    formData.engagement === engagement.id 
-                      ? 'border-blue-500 bg-blue-50' 
-                      : 'border-gray-200 bg-white hover:border-gray-300'
+                  className={`hover-lift p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                    formData.engagement === engagement.id
+                      ? 'border-orange-500 bg-orange-50 shadow-lg shadow-orange-500/20'
+                      : 'border-gray-200 bg-white hover:border-orange-300'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <Clock className="w-5 h-5 text-blue-600" />
-                      <h4 className="font-semibold text-gray-800">{engagement.title}</h4>
+                      <Clock className="w-5 h-5" style={{ color: '#ff6b35' }} />
+                      <h4 className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>{engagement.title}</h4>
                     </div>
-                    <span className="text-sm text-gray-500">{engagement.hours} hrs/week</span>
+                    <span className="text-sm" style={{ color: '#666666' }}>{engagement.hours} hrs/week</span>
                   </div>
                 </div>
               ))}
@@ -259,44 +259,44 @@ const ResourceAugmentationCalculator = () => {
               <h3 className="text-2xl font-bold text-gray-800 mb-2">Configuration Summary</h3>
               <p className="text-gray-600">Review your resource augmentation requirements</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-6 space-y-4">
+            <div className="bg-gray-50 rounded-xl p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-gray-600">Resource Type:</span>
-                  <div className="font-semibold">
+                  <div className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>
                     {resourceTypes.find(r => r.id === formData.resourceType)?.title}
                   </div>
                 </div>
                 <div>
                   <span className="text-gray-600">Experience Level:</span>
-                  <div className="font-semibold">
+                  <div className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>
                     {experienceLevels.find(e => e.id === formData.experienceLevel)?.title}
                   </div>
                 </div>
                 <div>
                   <span className="text-gray-600">Team Size:</span>
-                  <div className="font-semibold">{formData.teamSize} resource(s)</div>
+                  <div className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>{formData.teamSize} resource(s)</div>
                 </div>
                 <div>
                   <span className="text-gray-600">Duration:</span>
-                  <div className="font-semibold">
+                  <div className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>
                     {durations.find(d => d.id === formData.duration)?.title}
                   </div>
                 </div>
                 <div>
                   <span className="text-gray-600">Engagement:</span>
-                  <div className="font-semibold">
+                  <div className="font-semibold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>
                     {engagementTypes.find(e => e.id === formData.engagement)?.title}
                   </div>
                 </div>
               </div>
-              
+
               <div className="border-t pt-4 text-center">
-                <div className="bg-blue-50 rounded-lg p-4">
-                  <div className="text-blue-800 font-semibold text-lg mb-2">
+                <div className="bg-orange-50 rounded-xl p-4 border border-orange-200">
+                  <div className="font-semibold text-lg mb-2" style={{ fontFamily: 'var(--font-sans)', color: '#ff6b35' }}>
                     Ready to Get Your Custom Quote?
                   </div>
-                  <div className="text-blue-600 text-sm">
+                  <div className="text-sm" style={{ color: '#666666' }}>
                     Get detailed pricing and start your project with our expert team
                   </div>
                 </div>
@@ -325,12 +325,16 @@ const ResourceAugmentationCalculator = () => {
   const canProceed = isStepComplete(currentStep);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)' }}>
+      <div className="max-w-4xl mx-auto px-4 py-12">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Resource Augmentation Calculator</h1>
-          <p className="text-gray-600">Get instant cost estimates for scaling your team</p>
+        <div className="text-center mb-12">
+          <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-3" style={{ fontFamily: 'var(--font-sans)', background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Resource Augmentation Calculator
+          </h1>
+          <p className="text-[clamp(1rem,2.5vw,1.125rem)]" style={{ fontFamily: 'var(--font-sans)', color: '#666666', maxWidth: '600px', margin: '0 auto' }}>
+            Get instant cost estimates for scaling your team with top-tier talent
+          </p>
         </div>
 
         {/* Progress Steps */}
@@ -340,9 +344,9 @@ const ResourceAugmentationCalculator = () => {
               <React.Fragment key={step.id}>
                 <div className="flex flex-col items-center">
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold ${
+                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
                       currentStep === step.id
-                        ? 'bg-blue-600 text-white'
+                        ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/30'
                         : currentStep > step.id
                         ? 'bg-green-500 text-white'
                         : 'bg-gray-300 text-gray-600'
@@ -350,10 +354,10 @@ const ResourceAugmentationCalculator = () => {
                   >
                     {currentStep > step.id ? '✓' : step.id}
                   </div>
-                  <span className="text-xs mt-1 text-gray-600">{step.title}</span>
+                  <span className="text-xs mt-1" style={{ fontFamily: 'var(--font-sans)', color: '#666666' }}>{step.title}</span>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className={`w-12 h-0.5 ${currentStep > step.id ? 'bg-green-500' : 'bg-gray-300'}`} />
+                  <div className={`w-12 h-0.5 transition-all duration-300 ${currentStep > step.id ? 'bg-green-500' : 'bg-gray-300'}`} />
                 )}
               </React.Fragment>
             ))}
@@ -361,7 +365,7 @@ const ResourceAugmentationCalculator = () => {
         </div>
 
         {/* Main Content */}
-        <div className="bg-white rounded-lg shadow-lg p-8 min-h-96">
+        <div className="glass-card-light rounded-2xl p-8 min-h-96">
           {renderStep()}
         </div>
 
@@ -370,7 +374,7 @@ const ResourceAugmentationCalculator = () => {
           <button
             onClick={handlePrevious}
             disabled={currentStep === 1}
-            className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold ${
+            className={`button-press flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
               currentStep === 1
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-gray-600 text-white hover:bg-gray-700'
@@ -383,9 +387,9 @@ const ResourceAugmentationCalculator = () => {
           <button
             onClick={handleNext}
             disabled={!canProceed}
-            className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold ${
+            className={`button-press flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
               canProceed
-                ? 'bg-blue-600 text-white hover:bg-blue-700'
+                ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/30'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
             }`}
           >
@@ -397,8 +401,8 @@ const ResourceAugmentationCalculator = () => {
 
       {/* Contact Modal */}
       {showContactModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-card-light rounded-2xl shadow-2xl max-w-md w-full">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-bold text-gray-800">Contact Information</h3>
@@ -457,9 +461,9 @@ const ResourceAugmentationCalculator = () => {
                 <button
                   onClick={handleContactSubmit}
                   disabled={!contactData.name.trim() || !contactData.email.trim() || !contactData.phone.trim()}
-                  className={`w-full py-3 rounded-lg font-semibold transition-colors ${
+                  className={`button-press w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                     contactData.name.trim() && contactData.email.trim() && contactData.phone.trim()
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/30'
                       : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
                 >
@@ -477,46 +481,46 @@ const ResourceAugmentationCalculator = () => {
 
       {/* Cost Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-card-light rounded-2xl shadow-2xl max-w-md w-full">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-bold text-gray-800">Your Quote is Ready!</h3>
+                <h3 className="text-xl font-bold" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>Your Quote is Ready!</h3>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
                 >
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              
+
               <div className="text-center space-y-4">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg p-6 text-white">
+                <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 text-white">
                   <div className="text-3xl font-bold mb-2">${cost.monthly.toLocaleString()}</div>
-                  <div className="text-blue-100">Monthly Investment</div>
+                  <div className="text-orange-100">Monthly Investment</div>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div className="bg-gray-50 rounded-lg p-3">
+                  <div className="bg-gray-50 rounded-xl p-3">
                     <div className="text-gray-600">Hourly Rate</div>
                     <div className="font-bold text-lg">${cost.hourly}</div>
                   </div>
-                  <div className="bg-gray-50 rounded-lg p-3">
+                  <div className="bg-gray-50 rounded-xl p-3">
                     <div className="text-gray-600">Weekly Cost</div>
                     <div className="font-bold text-lg">${cost.weekly.toLocaleString()}</div>
                   </div>
                 </div>
-                
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                  <div className="text-yellow-800 font-semibold mb-1">You Save</div>
-                  <div className="text-yellow-600 text-sm">
+
+                <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+                  <div className="text-orange-800 font-semibold mb-1">You Save</div>
+                  <div className="text-orange-600 text-sm">
                     Compared to market rates - competitive pricing with top-tier talent
                   </div>
                 </div>
-                
+
                 <button
                   onClick={() => setShowModal(false)}
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="button-press w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
                 >
                   Get Started Now
                 </button>

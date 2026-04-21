@@ -22,6 +22,7 @@ import IndustriesSlider from './Pages/IndustriesSlider';
 import MVPModal from './Components/MVPModal';
 import ScrollToTop from './Components/ScrollToTop';
 import { ZikrAI, Eden, FaithCoach, NxtGenAI } from './Pages/products';
+import { DataProvider } from './contexts/DataContext';
 
 
 // Wrapper component to handle location-based modal logic
@@ -267,6 +268,15 @@ function App() {
     });
 
     // Loading screen
+    const taglines = [
+      "Sparking ideas into digital reality",
+      "Igniting innovation...",
+      "Transforming businesses...",
+      "Building the future...",
+      "Empowering digital transformation..."
+    ];
+    const tagline = taglines[Math.floor(Math.random() * taglines.length)];
+
     const loadingScreen = document.createElement('div');
     loadingScreen.innerHTML = `
       <div style="
@@ -275,43 +285,90 @@ function App() {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%);
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 10000;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.3s ease;
       ">
-        <div style="text-align: center; color: white;">
+        <div style="text-align: center; font-family: var(--font-sans); display: flex; flex-direction: column; align-items: center; justify-content: center;">
           <div style="
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 107, 53, 0.3);
-            border-top: 3px solid #ff6b35;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-          "></div>
-          <h2 style="color: #ff6b35; margin: 0;">Flint Sol</h2>
-          <p style="margin: 10px 0 0; opacity: 0.8;">Loading Innovation...</p>
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 24px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          ">
+            <div style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              background: linear-gradient(135deg, #ff6b35, #ff8f65);
+              border-radius: 50%;
+              animation: pulse 1.5s ease-in-out infinite;
+            "></div>
+            <div style="
+              position: absolute;
+              width: 25px;
+              height: 25px;
+              background: #FFFFFF;
+              border-radius: 50%;
+              animation: pulse-inner 1.5s ease-in-out infinite 0.3s;
+            "></div>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="position: relative; z-index: 2;">
+              <path d="M12 2L15 9L22 9L17 13L19 20L12 16L5 20L7 13L2 9L9 9L12 2Z" fill="#ff6b35" />
+            </svg>
+          </div>
+          <h2 style="color: #121D1A; margin: 0 0 8px; font-weight: bold; font-size: 1.8rem;">Flint Sol</h2>
+          <p style="margin: 0; color: #666666; font-size: 1rem; min-height: 24px;">${tagline}</p>
+          <div style="
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+          ">
+            <div style="
+              width: 0%;
+              height: 100%;
+              background: linear-gradient(90deg, #ff6b35, #ff8f65);
+              border-radius: 2px;
+              animation: progress 1.2s ease-out forwards;
+            "></div>
+          </div>
         </div>
       </div>
     `;
-    const spinAnimation = document.createElement('style');
-    spinAnimation.textContent = `
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+    const loadingStyles = document.createElement('style');
+    loadingStyles.textContent = `
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.3); opacity: 0.2; }
+      }
+      @keyframes pulse-inner {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 0.4; }
+      }
+      @keyframes progress {
+        0% { width: 0%; }
+        100% { width: 100%; }
       }
     `;
-    document.head.appendChild(spinAnimation);
+    document.head.appendChild(loadingStyles);
     document.body.appendChild(loadingScreen);
     setTimeout(() => {
       loadingScreen.style.opacity = '0';
       setTimeout(() => {
         loadingScreen.remove();
-      }, 500);
-    }, 1500);
+      }, 300);
+    }, 1200);
 
     // Scroll progress indicator
     const progressBar = document.createElement('div');
@@ -335,9 +392,11 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <DataProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </DataProvider>
   );
 }
 

@@ -1,109 +1,19 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useData } from "../contexts/DataContext";
+import { useScrollAnimation } from "../utils/useScrollAnimation";
 
 const Coreservices = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const navigate = useNavigate();
+  const { services } = useData();
   const handleCardClick = (service) => {
     // Navigation logic - replace with your routing solution
     // For demo purposes, you can replace this with your actual navigation
     navigate(`/Core-services?service=${service}`);
   };
-
-  const services = [
-    {
-      id: "ai",
-      icon: "🤖",
-      title: "AI & Automation",
-      description: "Transform your business with our AI-driven solutions, from intelligent chatbots to automated workflows that streamline operations.",
-      features: [
-        "LegalEaseAI – LegalTech automation",
-        "AI Voice Agent – Voice-driven calendar booking", 
-        "PocketMate – AI mental health chatbot",
-        "TexMed – AI-powered medical billing",
-        "Social Media Automation – AI-driven content scheduler"
-      ],
-      buttonText: "Explore AI Solutions",
-      gradient: "from-purple-600 to-blue-600"
-    },
-    {
-      id: "web",
-      icon: "💻",
-      title: "Web Development",
-      description: "Full-stack web development solutions using cutting-edge technologies to create scalable, responsive applications.",
-      features: [
-        "EVBids (Vue + Docker) – Auction Platform",
-        "VertikalRMS (React/Node) – SaaS HRM",
-        "Cervelo & Dopper – eCommerce platforms",
-        "Trulia & PropertyNest – Real Estate Portals",
-        "Custom Web Applications & APIs"
-      ],
-      buttonText: "Start Web Project",
-      gradient: "from-blue-500 to-cyan-600"
-    },
-    {
-      id: "blockchain",
-      icon: "⛓️",
-      title: "Blockchain Development",
-      description: "Innovative blockchain solutions for secure, transparent, and efficient transactions.",
-      features: [
-        "Smart Contract Development",
-        "Decentralized Application (DApp) Development",
-        "Blockchain Integration Services",
-        "Tokenization & ICO Services",
-        "Custom Web Applications & APIs"
-      ],
-      buttonText: "Start Project",
-      gradient: "from-yellow-500 to-orange-600"
-    },
-    {
-      id: "mobile",
-      icon: "📱",
-      title: "Mobile App Development",
-      description: "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
-      features: [
-        "Laari (React Native) – Freight & Logistics",
-        "Claim Toolkit – Insurance workflow tool",
-        "Greencard Payments – Digital wallet system",
-        "Gort, TrackHero, Chore Tools – Lifestyle apps",
-        "Cross-platform Development Solutions"
-      ],
-      buttonText: "Launch Mobile App",
-      gradient: "from-pink-500 to-rose-600"
-    },
-    {
-      id: "mvp",
-      icon: "⚡",
-      title: "MVP Development",
-      description: "Rapidly validate your ideas with our MVP development service. Get to market faster with lean, scalable solutions.",
-      features: [
-        "Rapid Prototyping & Validation",
-        "Market-Ready Minimum Viable Products",
-        "User-Centric Design & Development",
-        "Scalable Architecture Foundation",
-        "Agile Development Methodology"
-      ],
-      buttonText: "Build Your MVP",
-      gradient: "from-orange-500 to-red-600"
-    },
-    {
-      id: "resource",
-      icon: "👨‍💻",
-      title: "Resource Augmentation",
-      description: "Scale your team instantly with our skilled tech professionals to accelerate project delivery and boost productivity.",
-      features: [
-        "Frontend & Backend Developers",
-        "UI/UX Designers & Product Managers",
-        "QA Engineers & Test Automation",
-        "DevOps & Cloud Infrastructure Specialists",
-        "Flexible Engagement Models"
-      ],
-      buttonText: "Augment Your Team",
-      gradient: "from-green-500 to-teal-600"
-    },
-  ];
 
   const getServiceGradient = (serviceId) => {
     const gradients = {
@@ -129,33 +39,182 @@ const Coreservices = () => {
     return colors[serviceId] || '#6b7280';
   };
 
+  const [sectionRef, isSectionVisible] = useScrollAnimation(0.1);
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-      {/* Orange accent glow at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-orange-500/5 via-transparent to-transparent pointer-events-none"></div>
-      
+    <div style={{
+      minHeight: '100vh',
+      background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)',
+      color: '#121D1A',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      {/* Animated Background Elements */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        pointerEvents: 'none',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          right: '5%',
+          width: '350px',
+          height: '350px',
+          background: 'radial-gradient(circle, rgba(255,107,53,0.12) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          animation: 'float 9s ease-in-out infinite'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          top: '40%',
+          left: '8%',
+          width: '300px',
+          height: '300px',
+          background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          animation: 'float 11s ease-in-out infinite 2s'
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '25%',
+          right: '20%',
+          width: '280px',
+          height: '280px',
+          background: 'radial-gradient(circle, rgba(147,51,234,0.08) 0%, transparent 70%)',
+          borderRadius: '50%',
+          filter: 'blur(60px)',
+          animation: 'float 13s ease-in-out infinite 4s'
+        }}></div>
+        <style>{`
+          @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, 20px) scale(1.05); }
+            66% { transform: translate(15px, -15px) scale(0.95); }
+          }
+        `}</style>
+      </div>
+
       {/* Page Header */}
-      <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-12 sm:pb-16 text-center px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent leading-tight">
+      <div style={{
+        paddingTop: '100px',
+        paddingBottom: '60px',
+        textAlign: 'center',
+        position: 'relative',
+        zIndex: 10
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '0 20px'
+        }}>
+          {/* Badge */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(255,143,101,0.05) 100%)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '50px',
+            padding: '10px 20px',
+            marginBottom: '24px',
+            border: '1px solid rgba(255,107,53,0.2)'
+          }}>
+            <span style={{
+              width: '8px',
+              height: '8px',
+              background: '#ff6b35',
+              borderRadius: '50%',
+              animation: 'pulse 2s infinite'
+            }}></span>
+            <span style={{
+              fontSize: '0.85rem',
+              fontWeight: 600,
+              color: '#ff6b35',
+              fontFamily: 'var(--font-sans)'
+            }}>What We Offer</span>
+          </div>
+
+          <h1 style={{
+            fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+            fontWeight: '800',
+            marginBottom: '20px',
+            fontFamily: 'var(--font-sans)',
+            background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 50%, #ff6b35 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            backgroundSize: '200% 200%',
+            animation: 'gradient 8s ease infinite'
+          }}>
             Our Core Services
           </h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-            Empowering startups and enterprises through AI, automation, and full-stack development. 
+          <style>{`
+            @keyframes gradient {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+            @keyframes pulse {
+              0%, 100% { opacity: 1; transform: scale(1); }
+              50% { opacity: 0.7; transform: scale(1.2); }
+            }
+          `}</style>
+          <p style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
+            color: '#666666',
+            maxWidth: '800px',
+            margin: '0 auto',
+            lineHeight: '1.6',
+            fontFamily: 'var(--font-sans)'
+          }}>
+            Empowering startups and enterprises through AI, automation, and full-stack development.
             Digital transformation through innovation and cutting-edge technology solutions.
           </p>
         </div>
       </div>
 
       {/* Services Section */}
-      <section className="px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 lg:pb-24 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
+      <section ref={sectionRef} style={{
+        padding: '0 20px 80px', 
+        position: 'relative', 
+        zIndex: 10, 
+        opacity: isSectionVisible ? 1 : 0, 
+        transform: isSectionVisible ? 'translateY(0)' : 'translateY(30px)', 
+        transition: 'opacity 0.6s ease-out, transform 0.6s ease-out'
+      }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+            gap: '30px',
+            marginBottom: '60px',
+            '@media (min-width: 1200px)': {
+              gridTemplateColumns: 'repeat(3, 1fr)'
+            },
+            '@media (min-width: 768px) and (max-width: 1199px)': {
+              gridTemplateColumns: 'repeat(2, 1fr)'
+            },
+            '@media (max-width: 767px)': {
+              gridTemplateColumns: '1fr'
+            }
+          }}>
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className="bg-gradient-to-br from-slate-800/70 to-slate-900/70 backdrop-blur-lg rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 cursor-pointer transition-all duration-300 border border-slate-700/50 hover:border-orange-500/50 group transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 min-h-[500px] sm:min-h-[550px] flex flex-col"
-                style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
+                className="hover-lift glass-card-light"
+                style={{
+                  padding: 'clamp(20px, 5vw, 40px)',
+                  cursor: 'pointer',
+                  minHeight: '500px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
+                  animationDelay: isSectionVisible ? `${index * 0.1}s` : '0s'
+                }}
                 onClick={() => {
                   if (service.id === 'mvp') {
                     navigate('/mvp-services');
@@ -165,38 +224,99 @@ const Coreservices = () => {
                 }}
               >
                 {/* Icon and Title Section */}
-                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <span className="text-3xl sm:text-4xl lg:text-5xl">{service.icon}</span>
-                  <div 
-                    className="flex-1 h-1 rounded-full bg-gradient-to-r from-orange-400 to-orange-500"
-                  ></div>
+                <div style={{
+                  fontSize: 'clamp(2rem, 4vw, 3rem)',
+                  marginBottom: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '15px',
+                  flexWrap: 'wrap'
+                }}>
+                  <span>{service.icon}</span>
+                  <div style={{
+                    width: 'clamp(40px, 8vw, 60px)',
+                    height: '4px',
+                    background: service.id === 'ai' ? 'linear-gradient(90deg, #9333ea, #2563eb)' :
+                               service.id === 'mvp' ? 'linear-gradient(90deg, #f97316, #dc2626)' :
+                               service.id === 'resource' ? 'linear-gradient(90deg, #059669, #0d9488)' :
+                               service.id === 'web' ? 'linear-gradient(90deg, #3b82f6, #06b6d4)' :
+                               'linear-gradient(90deg, #ec4899, #f43f5e)',
+                    borderRadius: '2px'
+                  }}></div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-white group-hover:text-orange-400 transition-colors duration-300">
+                <h3 style={{
+                  fontSize: 'clamp(1.3rem, 3vw, 1.8rem)',
+                  fontWeight: '700',
+                  marginBottom: '15px',
+                  fontFamily: 'var(--font-sans)',
+                  color: '#121D1A'
+                }}>
                   {service.title}
                 </h3>
 
-                <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-6 sm:mb-8">
+                <p style={{
+                  fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                  color: '#666666',
+                  lineHeight: '1.6',
+                  marginBottom: '25px',
+                  fontFamily: 'var(--font-sans)'
+                }}>
                   {service.description}
                 </p>
 
                 {/* Features List */}
-                <div className="flex-1 mb-6 sm:mb-8">
-                  <ul className="space-y-3 sm:space-y-4">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-gray-200">
-                        <div 
-                          className="w-2 h-2 rounded-full flex-shrink-0 mt-2 bg-orange-500"
-                        ></div>
-                        <span className="leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul style={{
+                  listStyle: 'none',
+                  padding: '0',
+                  margin: '0 0 30px 0',
+                  flex: '1'
+                }}>
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} style={{
+                      padding: '8px 0',
+                      color: '#666666',
+                      fontSize: 'clamp(0.85rem, 1.8vw, 0.95rem)',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '10px',
+                      fontFamily: 'var(--font-sans)'
+                    }}>
+                      <span style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: '#ff6b35',
+                        flexShrink: 0,
+                        marginTop: '8px'
+                      }}></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
 
                 {/* CTA Button */}
                 <button
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white font-semibold text-sm sm:text-base lg:text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-orange-500/30 bg-gradient-to-r from-orange-500 to-orange-600 hover:shadow-lg hover:shadow-orange-500/30"
+                  className="button-press"
+                  style={{
+                    background: service.id === 'ai' ? 'linear-gradient(135deg, #9333ea, #2563eb)' :
+                               service.id === 'mvp' ? 'linear-gradient(135deg, #f97316, #dc2626)' :
+                               service.id === 'resource' ? 'linear-gradient(135deg, #059669, #0d9488)' :
+                               service.id === 'web' ? 'linear-gradient(135deg, #3b82f6, #06b6d4)' :
+                               'linear-gradient(135deg, #ec4899, #f43f5e)',
+                    border: 'none',
+                    borderRadius: '50px',
+                    padding: 'clamp(10px, 2vw, 12px) clamp(20px, 4vw, 30px)',
+                    color: '#ffffff',
+                    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    textTransform: 'none',
+                    width: '100%',
+                    maxWidth: '200px',
+                    fontFamily: 'var(--font-sans)'
+                  }}
                   onClick={(e) => {
                     e.stopPropagation();
                     if (service.id === 'mvp') {

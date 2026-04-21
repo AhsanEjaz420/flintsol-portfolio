@@ -59,24 +59,67 @@ const Connectus = () => {
   return (
     <>
       <section className="contact" id="contact" style={{
-        padding: '2rem 0',
-        background: 'white',
+        padding: '4rem 0',
+        background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)',
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        position: 'relative',
+        overflow: 'hidden'
       }}>
+        {/* Animated Background Elements */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          overflow: 'hidden'
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: '20%',
+            right: '10%',
+            width: '300px',
+            height: '300px',
+            background: 'radial-gradient(circle, rgba(255,107,53,0.1) 0%, transparent 70%)',
+            borderRadius: '50%',
+            filter: 'blur(60px)',
+            animation: 'float 10s ease-in-out infinite'
+          }}></div>
+          <div style={{
+            position: 'absolute',
+            bottom: '30%',
+            left: '5%',
+            width: '250px',
+            height: '250px',
+            background: 'radial-gradient(circle, rgba(102,126,234,0.08) 0%, transparent 70%)',
+            borderRadius: '50%',
+            filter: 'blur(60px)',
+            animation: 'float 12s ease-in-out infinite 2s'
+          }}></div>
+          <style>{`
+            @keyframes float {
+              0%, 100% { transform: translate(0, 0) scale(1); }
+              33% { transform: translate(-15px, 15px) scale(1.05); }
+              66% { transform: translate(10px, -10px) scale(0.95); }
+            }
+          `}</style>
+        </div>
+
         <div className="container" style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '0 2rem'
+          padding: '0 2rem',
+          position: 'relative',
+          zIndex: 10
         }}>
           <h2 className="section-title animate-on-scroll" style={{
             textAlign: 'center',
-            fontSize: '2.5rem',
+            fontSize: 'clamp(2rem,4vw,2.5rem)',
             fontWeight: 'bold',
-            color: '#1a1a2e',
+            color: '#121D1A',
             marginBottom: '2rem',
-            marginTop: '6rem'
+            marginTop: '4rem',
+            fontFamily: 'var(--font-sans)'
           }}>Get In Touch</h2>
           
           <div className="contact-content" style={{
@@ -86,15 +129,13 @@ const Connectus = () => {
             alignItems: 'start'
           }}>
             {/* Contact Info */}
-            <div className="contact-info animate-left" style={{
-              background: 'rgba(102, 126, 234, 0.05)',
+            <div className="contact-info animate-left glass-card-light hover-lift" style={{
               padding: '2rem',
               borderRadius: '20px',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-              border: '1px solid rgba(102, 126, 234, 0.1)'
+              fontFamily: 'var(--font-sans)'
             }}>
               <h3 style={{ 
-                color: "#1a1a2e", 
+                color: "#121D1A", 
                 marginBottom: "2rem",
                 fontSize: '1.8rem',
                 fontWeight: 'bold'
@@ -113,7 +154,7 @@ const Connectus = () => {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  background: 'linear-gradient(135deg, #ff6b6b, #ff8e8e)',
+                  background: 'linear-gradient(135deg, #ff6b35, #ff8f65)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -127,8 +168,8 @@ const Connectus = () => {
                   }}></i>
                 </div>
                 <div>
-                  <strong style={{ color: '#1a1a2e' }}>Phone</strong><br />
-                  <span style={{ color: '#666' }}>+92 331 5411654</span>
+                  <strong style={{ color: '#121D1A' }}>Phone</strong><br />
+                  <span style={{ color: '#666666' }}>+92 331 5411654</span>
                 </div>
               </div>
               
@@ -145,7 +186,7 @@ const Connectus = () => {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  background: 'linear-gradient(135deg, #ff6b6b, #ff8e8e)',
+                  background: 'linear-gradient(135deg, #ff6b35, #ff8f65)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -159,8 +200,8 @@ const Connectus = () => {
                   }}></i>
                 </div>
                 <div>
-                  <strong style={{ color: '#1a1a2e' }}>Website</strong><br />
-                  <span style={{ color: '#666' }}>www.flint-sol.com</span>
+                  <strong style={{ color: '#121D1A' }}>Website</strong><br />
+                  <span style={{ color: '#666666' }}>www.flint-sol.com</span>
                 </div>
               </div>
               
@@ -177,7 +218,7 @@ const Connectus = () => {
                 <div style={{
                   width: '50px',
                   height: '50px',
-                  background: 'linear-gradient(135deg, #ff6b6b, #ff8e8e)',
+                  background: 'linear-gradient(135deg, #ff6b35, #ff8f65)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -191,28 +232,30 @@ const Connectus = () => {
                   }}></i>
                 </div>
                 <div>
-                  <strong style={{ color: '#1a1a2e' }}>Address</strong><br />
-                  <span style={{ color: '#666' }}>H 14, St 49, G-13/2, Islamabad</span>
+                  <strong style={{ color: '#121D1A' }}>Address</strong><br />
+                  <span style={{ color: '#666666' }}>H 14, St 49, G-13/2, Islamabad</span>
                 </div>
               </div>
 
               <div className="contact-cta" style={{ 
                 marginTop: '2rem',
                 padding: '1.5rem',
-                background: 'linear-gradient(135deg, #1a1a2e, #2d2d4a)',
+                background: 'linear-gradient(135deg, #ff6b35, #ff8f65)',
                 borderRadius: '15px',
                 color: 'white'
               }}>
                 <h3 style={{
                   color: 'white',
                   marginBottom: '1rem',
-                  fontSize: '1.3rem'
+                  fontSize: '1.3rem',
+                  fontFamily: 'var(--font-sans)'
                 }}>Ready to Innovate, Integrate & Elevate with us?</h3>
                 <p style={{ 
                   marginBottom: "0", 
                   opacity: 0.9,
-                  color: 'rgba(255,255,255,0.8)',
-                  lineHeight: '1.6'
+                  color: 'rgba(255,255,255,0.9)',
+                  lineHeight: '1.6',
+                  fontFamily: 'var(--font-sans)'
                 }}>
                   We don't just build tech - we deliver strategic innovation, seamless execution, and dependable partnerships that drive real business impact.
                 </p>
@@ -220,15 +263,13 @@ const Connectus = () => {
             </div>
             
             {/* Contact Form */}
-            <div className="contact-form animate-right" style={{
-              background: 'white',
+            <div className="contact-form animate-right glass-card-light hover-lift" style={{
               padding: '2rem',
               borderRadius: '20px',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-              border: '1px solid rgba(102, 126, 234, 0.1)'
+              fontFamily: 'var(--font-sans)'
             }}>
                              <h3 style={{
-                 color: '#1a1a2e',
+                 color: '#121D1A',
                  marginBottom: '2rem',
                  fontSize: '1.8rem',
                  fontWeight: 'bold'
@@ -256,9 +297,10 @@ const Connectus = () => {
                         borderRadius: '10px',
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
-                        outline: 'none'
+                        outline: 'none',
+                        fontFamily: 'var(--font-sans)'
                       }}
-                      onFocus={(e) => e.target.style.borderColor = '#667eea'}
+                      onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
                     />
                   </div>
@@ -277,9 +319,10 @@ const Connectus = () => {
                         borderRadius: '10px',
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
-                        outline: 'none'
+                        outline: 'none',
+                        fontFamily: 'var(--font-sans)'
                       }}
-                      onFocus={(e) => e.target.style.borderColor = '#667eea'}
+                      onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
                     />
                   </div>
@@ -305,9 +348,10 @@ const Connectus = () => {
                         borderRadius: '10px',
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
-                        outline: 'none'
+                        outline: 'none',
+                        fontFamily: 'var(--font-sans)'
                       }}
-                      onFocus={(e) => e.target.style.borderColor = '#667eea'}
+                      onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
                     />
                   </div>
@@ -326,9 +370,10 @@ const Connectus = () => {
                         borderRadius: '10px',
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
-                        outline: 'none'
+                        outline: 'none',
+                        fontFamily: 'var(--font-sans)'
                       }}
-                      onFocus={(e) => e.target.style.borderColor = '#667eea'}
+                      onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
                     />
                   </div>
@@ -351,9 +396,9 @@ const Connectus = () => {
                       transition: 'all 0.3s ease',
                       outline: 'none',
                       resize: 'vertical',
-                      fontFamily: 'inherit'
+                      fontFamily: 'var(--font-sans)'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#667eea'}
+                    onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                     onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
                   />
                 </div>
@@ -367,7 +412,8 @@ const Connectus = () => {
                      marginBottom: '1rem',
                      border: '1px solid #c3e6cb',
                      display: 'flex',
-                     alignItems: 'center'
+                     alignItems: 'center',
+                     fontFamily: 'var(--font-sans)'
                    }}>
                      <i className="fas fa-check-circle" style={{ marginRight: '0.5rem', fontSize: '1.2rem' }}></i>
                      <div>
@@ -386,7 +432,8 @@ const Connectus = () => {
                      marginBottom: '1rem',
                      border: '1px solid #f5c6cb',
                      display: 'flex',
-                     alignItems: 'center'
+                     alignItems: 'center',
+                     fontFamily: 'var(--font-sans)'
                    }}>
                      <i className="fas fa-exclamation-triangle" style={{ marginRight: '0.5rem', fontSize: '1.2rem' }}></i>
                      <div>
@@ -399,10 +446,11 @@ const Connectus = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  className="button-press"
                   style={{
                     width: '100%',
                     padding: '1rem 2rem',
-                    background: isSubmitting ? '#ccc' : 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    background: isSubmitting ? '#ccc' : 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 100%)',
                     color: 'white',
                     border: 'none',
                     borderRadius: '10px',
@@ -410,23 +458,24 @@ const Connectus = () => {
                     fontWeight: 'bold',
                     cursor: isSubmitting ? 'not-allowed' : 'pointer',
                     transition: 'all 0.3s ease',
-                    boxShadow: '0 5px 15px rgba(102, 126, 234, 0.4)',
+                    boxShadow: '0 5px 15px rgba(255, 107, 53, 0.3)',
                     transform: 'translateY(0)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '0.5rem'
+                    gap: '0.5rem',
+                    fontFamily: 'var(--font-sans)'
                   }}
                   onMouseEnter={(e) => {
                     if (!isSubmitting) {
                       e.target.style.transform = 'translateY(-2px)';
-                      e.target.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.6)';
+                      e.target.style.boxShadow = '0 8px 25px rgba(255, 107, 53, 0.4)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isSubmitting) {
                       e.target.style.transform = 'translateY(0)';
-                      e.target.style.boxShadow = '0 5px 15px rgba(102, 126, 234, 0.4)';
+                      e.target.style.boxShadow = '0 5px 15px rgba(255, 107, 53, 0.3)';
                     }
                   }}
                 >

@@ -243,28 +243,30 @@
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLazyVideo } from "../utils/lazyVideo";
 
 const Hero = () => {
   const navigate = useNavigate();
+  const { videoRef, isLoaded } = useLazyVideo("/assets/BG/1753847917474064981_X4mifEAx.mp4");
   const handleNavigate = () => {
     // Navigation logic would go here
     navigate("/Costcalculator");
   };
-  
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       <video
+        ref={videoRef}
         className="absolute top-0 left-0 w-full h-screen object-cover"
         autoPlay
         loop
         muted
         playsInline
-      >
-        <source
-          src={require("../assets/BG/1753847917474064981_X4mifEAx.mp4")}
-          type="video/mp4"
-        />
-      </video>
+        preload="none"
+      />
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+      )}
       <div className="absolute inset-0 bg-black/80"></div>
 
       {/* Content */}

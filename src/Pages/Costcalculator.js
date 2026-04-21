@@ -2816,11 +2816,43 @@ const CostCalculator = () => {
   });
   const [captchaValue, setCaptchaValue] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState({ show: false, type: "", message: "" });
+
+  const resetForm = () => {
+    setFormData({
+      fullName: "",
+      telephone: "",
+      email: "",
+      message: "",
+    });
+    setSelections({
+      projectType: "mvp",
+      industry: "",
+      aiFeatures: [],
+      uiEnhancements: [],
+      integrations: [],
+      analytics: [],
+      security: "",
+      automation: [],
+      growth: [],
+      mvpIndustry: "",
+      mvpFeatures: [],
+      mvpUsers: "",
+      mvpDeployment: "",
+      mvpSupport: "",
+    });
+    setCurrentStep(1);
+    setShowModal(false);
+    setSelectedItems({});
+    setCaptchaValue(null);
+    setIsLoading(false);
+  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     // Reset all states
-    const resetForm = () => {
+    const resetFormLocal = () => {
       setFormData({
         fullName: "",
         telephone: "",

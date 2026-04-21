@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap location (you can add this when you have a sitemap)
+# Sitemap: https://flint-sol.com/sitemap.xml

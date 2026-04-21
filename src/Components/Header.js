@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/Untitled_design__22_-removebg-preview.png"
 
 function useScrollDirection() {
@@ -63,15 +64,29 @@ function useNavbarBackground() {
 }
 
 const Header = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeService, setActiveService] = useState("mvp");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
-  
+
 
   const showHeader = useScrollDirection();
   const isOverWhiteSection = useNavbarBackground();
+
+  // Navigation handler for service items
+  const handleServiceNavigation = (service) => {
+    const serviceRoutes = {
+      mvp: '/mvp-services',
+      ai: '/Core-services?service=ai',
+      blockchain: '/Core-services?service=blockchain',
+      web: '/Core-services?service=web',
+      mobile: '/Core-services?service=mobile',
+      resource: '/Core-services?service=resource'
+    };
+    navigate(serviceRoutes[service]);
+  };
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -128,7 +143,7 @@ const Header = () => {
     if (isOverWhiteSection) {
       return {
         ...baseStyles,
-        background: "rgba(15, 23, 42, 0.95)", // Darker, more solid background
+        background: "rgba(15, 23, 42, 0.95)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
@@ -136,7 +151,7 @@ const Header = () => {
     } else {
       return {
         ...baseStyles,
-        background: "rgba(15, 23, 42, 0.3)", // Semi-transparent for homepage
+        background: "rgba(15, 23, 42, 0.3)",
         backdropFilter: "blur(10px)",
         WebkitBackdropFilter: "blur(10px)",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
@@ -281,6 +296,10 @@ const Header = () => {
                           activeService === "mvp" ? "active" : ""
                         }`}
                         onMouseEnter={() => setActiveService("mvp")}
+                        onClick={() => {
+                          handleServiceNavigation("mvp");
+                          setDropdownOpen(false);
+                        }}
                       >
                         <div className="service-icon">⚡</div>
                         <span>MVP Development</span>
@@ -290,6 +309,10 @@ const Header = () => {
                           activeService === "ai" ? "active" : ""
                         }`}
                         onMouseEnter={() => setActiveService("ai")}
+                        onClick={() => {
+                          handleServiceNavigation("ai");
+                          setDropdownOpen(false);
+                        }}
                       >
                         <div className="service-icon">🤖</div>
                         <span>AI & Automation</span>
@@ -299,6 +322,10 @@ const Header = () => {
                           activeService === "blockchain" ? "active" : ""
                         }`}
                         onMouseEnter={() => setActiveService("blockchain")}
+                        onClick={() => {
+                          handleServiceNavigation("blockchain");
+                          setDropdownOpen(false);
+                        }}
                       >
                         <div className="service-icon">⛓️</div>
                         <span>Blockchain Development</span>
@@ -308,6 +335,10 @@ const Header = () => {
                           activeService === "web" ? "active" : ""
                         }`}
                         onMouseEnter={() => setActiveService("web")}
+                        onClick={() => {
+                          handleServiceNavigation("web");
+                          setDropdownOpen(false);
+                        }}
                       >
                         <div className="service-icon">💻</div>
                         <span>Web Development</span>
@@ -317,6 +348,10 @@ const Header = () => {
                           activeService === "mobile" ? "active" : ""
                         }`}
                         onMouseEnter={() => setActiveService("mobile")}
+                        onClick={() => {
+                          handleServiceNavigation("mobile");
+                          setDropdownOpen(false);
+                        }}
                       >
                         <div className="service-icon">📱</div>
                         <span>Mobile App Development</span>
@@ -326,6 +361,10 @@ const Header = () => {
                           activeService === "resource" ? "active" : ""
                         }`}
                         onMouseEnter={() => setActiveService("resource")}
+                        onClick={() => {
+                          handleServiceNavigation("resource");
+                          setDropdownOpen(false);
+                        }}
                       >
                         <div className="service-icon">👥</div>
                         <span>Resource Augmentation</span>
@@ -523,6 +562,7 @@ const Header = () => {
                                  {/* Mobile Services Submenu */}
                  <div className={`mobile-services-menu ${mobileServicesOpen ? 'open' : ''}`}>
                   <div className="mobile-service-item" onClick={() => {
+                    handleServiceNavigation("mvp");
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
@@ -533,6 +573,7 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="mobile-service-item" onClick={() => {
+                    handleServiceNavigation("ai");
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
@@ -543,6 +584,7 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="mobile-service-item" onClick={() => {
+                    handleServiceNavigation("blockchain");
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
@@ -553,6 +595,7 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="mobile-service-item" onClick={() => {
+                    handleServiceNavigation("web");
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
@@ -563,6 +606,7 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="mobile-service-item" onClick={() => {
+                    handleServiceNavigation("mobile");
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
@@ -573,6 +617,7 @@ const Header = () => {
                     </div>
                   </div>
                   <div className="mobile-service-item" onClick={() => {
+                    handleServiceNavigation("resource");
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
@@ -666,18 +711,22 @@ const Header = () => {
         .menu-toggle {
           display: none;
           flex-direction: column;
-          background: none;
-          border: none;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
           cursor: pointer;
           padding: 0.75rem;
           position: relative;
           z-index: 1003;
-          border-radius: 6px;
+          border-radius: 12px;
           transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
+          backdrop-filter: blur(10px);
         }
 
         .menu-toggle:hover {
-          background: rgba(255, 107, 53, 0.12);
+          background: rgba(255, 107, 53, 0.15);
+          border-color: rgba(255, 107, 53, 0.3);
+          transform: scale(1.05);
+          box-shadow: 0 4px 20px rgba(255, 107, 53, 0.2);
         }
 
         .hamburger-lines {
@@ -698,7 +747,8 @@ const Header = () => {
         }
 
         .menu-toggle:hover .hamburger {
-          background-color: #f97316;
+          background-color: #ff6b35;
+          width: 26px;
         }
 
         .close-icon {
@@ -710,7 +760,8 @@ const Header = () => {
         }
 
         .menu-toggle:hover .close-icon {
-          color: #f97316;
+          color: #ff6b35;
+          transform: rotate(90deg);
         }
 
         .nav-overlay {
@@ -1132,25 +1183,25 @@ const Header = () => {
 
                      .mobile-services-menu {
              display: block;
-             background: rgba(15, 23, 42, 0.95);
+             background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
              border-radius: var(--radius-lg, 1rem);
              margin: 0.25rem 0;
              padding: 0;
              max-height: 0;
              overflow: hidden;
-             transition: all 0.4s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
-             border: 1px solid rgba(255, 107, 53, 0.12);
-             backdrop-filter: blur(10px);
-             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+             transition: all 0.5s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
+             border: 1px solid rgba(255, 107, 53, 0.2);
+             backdrop-filter: blur(20px) saturate(180%);
+             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
              z-index: 1004;
              position: relative;
            }
 
            .mobile-services-menu.open {
-             max-height: 500px;
+             max-height: 600px;
              padding: var(--space-md, 0.75rem) 0;
-             border-color: rgba(249, 115, 22, 0.3);
-             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+             border-color: rgba(249, 115, 22, 0.4);
+             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 107, 53, 0.15);
            }
 
                      .mobile-service-item {
@@ -1165,7 +1216,24 @@ const Header = () => {
              border: 1px solid transparent;
              position: relative;
              overflow: hidden;
+             opacity: 0;
+             transform: translateX(-20px);
+             animation: slideInStagger 0.4s ease-out forwards;
            }
+
+          .mobile-service-item:nth-child(1) { animation-delay: 0.05s; }
+          .mobile-service-item:nth-child(2) { animation-delay: 0.1s; }
+          .mobile-service-item:nth-child(3) { animation-delay: 0.15s; }
+          .mobile-service-item:nth-child(4) { animation-delay: 0.2s; }
+          .mobile-service-item:nth-child(5) { animation-delay: 0.25s; }
+          .mobile-service-item:nth-child(6) { animation-delay: 0.3s; }
+
+          @keyframes slideInStagger {
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
 
           .mobile-service-item::before {
             content: "";
@@ -1174,40 +1242,57 @@ const Header = () => {
             top: 0;
             width: 0;
             height: 100%;
-            background: linear-gradient(90deg, rgba(255, 107, 53, 0.12) 0%, transparent 100%);
+            background: linear-gradient(90deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 107, 53, 0.05) 100%);
             transition: width 0.3s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
             z-index: 0;
+          }
+
+          .mobile-service-item::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #ff6b35, #ff8f65);
+            transition: height 0.3s ease;
+            z-index: 1;
           }
 
           .mobile-service-item:hover::before {
             width: 100%;
           }
 
+          .mobile-service-item:hover::after {
+            height: 70%;
+          }
+
           .mobile-service-item:hover {
-            background: rgba(255, 107, 53, 0.08);
-            transform: translateX(8px);
-            border-color: rgba(249, 115, 22, 0.3);
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.12);
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateX(12px);
+            border-color: rgba(249, 115, 22, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.2);
           }
 
           .mobile-service-icon {
             font-size: 1.25rem;
             flex-shrink: 0;
             transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
-            z-index: 1;
+            z-index: 2;
             position: relative;
           }
 
           .mobile-service-item:hover .mobile-service-icon {
-            transform: scale(1.1);
-            filter: brightness(1.2);
+            transform: scale(1.15) rotate(5deg);
+            filter: brightness(1.3) drop-shadow(0 0 8px rgba(255, 107, 53, 0.4));
           }
 
           .mobile-service-content {
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
-            z-index: 1;
+            z-index: 2;
             position: relative;
           }
 
@@ -1225,11 +1310,13 @@ const Header = () => {
           }
 
           .mobile-service-item:hover .mobile-service-title {
-            color: #f97316;
+            color: #ff6b35;
+            transform: translateX(4px);
           }
 
           .mobile-service-item:hover .mobile-service-desc {
             color: #cbd5e1;
+            transform: translateX(4px);
           }
 
           .services-dropdown:hover .mega-dropdown {

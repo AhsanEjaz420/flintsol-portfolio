@@ -326,25 +326,25 @@ const ResourceAugmentationCalculator = () => {
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)' }}>
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-3" style={{ fontFamily: 'var(--font-sans)', background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="font-bold mb-3" style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(3.5rem, 7vw, 4.5rem)', fontWeight: '800', background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             Resource Augmentation Calculator
           </h1>
-          <p className="text-[clamp(1rem,2.5vw,1.125rem)]" style={{ fontFamily: 'var(--font-sans)', color: '#666666', maxWidth: '600px', margin: '0 auto' }}>
+          <p className="text-[clamp(0.875rem,2.5vw,1rem)] sm:text-[clamp(1rem,2.5vw,1.125rem)]" style={{ fontFamily: 'var(--font-sans)', color: '#666666', maxWidth: '600px', margin: '0 auto' }}>
             Get instant cost estimates for scaling your team with top-tier talent
           </p>
         </div>
 
         {/* Progress Steps */}
-        <div className="flex justify-center mb-8">
-          <div className="flex items-center space-x-4">
+        <div className="flex justify-center mb-6 sm:mb-8">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             {steps.map((step, index) => (
               <React.Fragment key={step.id}>
                 <div className="flex flex-col items-center">
                   <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
+                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-semibold transition-all duration-300 ${
                       currentStep === step.id
                         ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/30'
                         : currentStep > step.id
@@ -354,10 +354,10 @@ const ResourceAugmentationCalculator = () => {
                   >
                     {currentStep > step.id ? '✓' : step.id}
                   </div>
-                  <span className="text-xs mt-1" style={{ fontFamily: 'var(--font-sans)', color: '#666666' }}>{step.title}</span>
+                  <span className="text-[10px] sm:text-xs mt-1 hidden sm:block" style={{ fontFamily: 'var(--font-sans)', color: '#666666' }}>{step.title}</span>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className={`w-12 h-0.5 transition-all duration-300 ${currentStep > step.id ? 'bg-green-500' : 'bg-gray-300'}`} />
+                  <div className={`w-6 sm:w-12 h-0.5 transition-all duration-300 ${currentStep > step.id ? 'bg-green-500' : 'bg-gray-300'}`} />
                 )}
               </React.Fragment>
             ))}
@@ -365,36 +365,36 @@ const ResourceAugmentationCalculator = () => {
         </div>
 
         {/* Main Content */}
-        <div className="glass-card-light rounded-2xl p-8 min-h-96">
+        <div className="glass-card-light rounded-2xl p-4 sm:p-6 lg:p-8 min-h-80 sm:min-h-96">
           {renderStep()}
         </div>
 
         {/* Navigation */}
-        <div className="flex justify-between mt-6">
+        <div className="flex justify-between mt-4 sm:mt-6">
           <button
             onClick={handlePrevious}
             disabled={currentStep === 1}
-            className={`button-press flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+            className={`button-press flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
               currentStep === 1
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-gray-600 text-white hover:bg-gray-700'
             }`}
           >
-            <ChevronLeft className="w-4 h-4" />
-            <span>Previous</span>
+            <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">Previous</span>
           </button>
 
           <button
             onClick={handleNext}
             disabled={!canProceed}
-            className={`button-press flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+            className={`button-press flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
               canProceed
                 ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/30'
                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
             }`}
           >
-            <span>{currentStep === 6 ? 'Get Detailed Quote' : 'Next'}</span>
-            <ChevronRight className="w-4 h-4" />
+            <span>{currentStep === 6 ? 'Get Quote' : 'Next'}</span>
+            <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
           </button>
         </div>
       </div>

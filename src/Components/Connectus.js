@@ -112,11 +112,16 @@ const Connectus = () => {
           position: 'relative',
           zIndex: 10
         }}>
-          <h2 className="section-title animate-on-scroll" style={{
+          <h2 className="animate-on-scroll" style={{
             textAlign: 'center',
-            fontSize: 'clamp(2rem,4vw,2.5rem)',
-            fontWeight: 'bold',
-            color: '#121D1A',
+            fontSize: 'clamp(3.5rem, 7vw, 4.5rem)',
+            fontWeight: '800',
+            background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 50%, #ff6b35 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            backgroundSize: '200% 200%',
+            animation: 'gradient 8s ease infinite',
             marginBottom: '2rem',
             marginTop: '4rem',
             fontFamily: 'var(--font-sans)'

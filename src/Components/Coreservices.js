@@ -139,7 +139,7 @@ const Coreservices = () => {
           </div>
 
           <h1 style={{
-            fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+            fontSize: 'clamp(3.5rem, 7vw, 4.5rem)',
             fontWeight: '800',
             marginBottom: '20px',
             fontFamily: 'var(--font-sans)',
@@ -179,28 +179,17 @@ const Coreservices = () => {
 
       {/* Services Section */}
       <section ref={sectionRef} style={{
-        padding: '0 20px 80px', 
-        position: 'relative', 
-        zIndex: 10, 
-        opacity: isSectionVisible ? 1 : 0, 
-        transform: isSectionVisible ? 'translateY(0)' : 'translateY(30px)', 
+        padding: '0 16px 60px',
+        position: 'relative',
+        zIndex: 10,
+        opacity: isSectionVisible ? 1 : 0,
+        transform: isSectionVisible ? 'translateY(0)' : 'translateY(30px)',
         transition: 'opacity 0.6s ease-out, transform 0.6s ease-out'
       }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '30px',
-            marginBottom: '60px',
-            '@media (min-width: 1200px)': {
-              gridTemplateColumns: 'repeat(3, 1fr)'
-            },
-            '@media (min-width: 768px) and (max-width: 1199px)': {
-              gridTemplateColumns: 'repeat(2, 1fr)'
-            },
-            '@media (max-width: 767px)': {
-              gridTemplateColumns: '1fr'
-            }
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{
+            gap: 'clamp(16px, 4vw, 30px)',
+            marginBottom: 'clamp(30px, 6vw, 60px)'
           }}>
             {services.map((service, index) => (
               <div

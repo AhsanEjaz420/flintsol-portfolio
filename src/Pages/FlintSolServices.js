@@ -683,39 +683,9 @@ const FlintSolServices = () => {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-white">Flint Sol</div>
-            <div className="flex space-x-1">
-              {[
-                { id: "ai", label: "AI & Automation", icon: Bot },
-                { id: "mobile", label: "Mobile Apps", icon: Smartphone },
-                { id: "web", label: "Web Development", icon: Globe },
-                { id: "resource", label: "Resources", icon: Users },
-              ].map(({ id, label, icon: Icon }) => (
-                <button
-                  key={id}
-                  onClick={() => setCurrentPage(id)}
-                  className={`flex items-center px-4 py-2 rounded-lg font-medium transition-all ${
-                    currentPage === id
-                      ? "bg-orange-500 text-white"
-                      : "text-gray-300 hover:text-white hover:bg-slate-800"
-                  }`}
-                >
-                  <Icon className="w-4 h-4 mr-2" />
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-slate-900 pt-20">
       {/* Page Content */}
-      <div className="pt-20">{renderCurrentPage()}</div>
+      {renderCurrentPage()}
     </div>
   );
 };

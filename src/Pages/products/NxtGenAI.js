@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingBag, Wand2, Mail, Users, BarChart3, MessageSquare, Sparkles, FileText, Target, ChevronRight, Play, Download, Zap, Shield, Cpu, Globe, Rocket, Bot, Video, Trophy, Moon, ChevronLeft, Plus, Calendar, Home } from 'lucide-react';
+import { ArrowLeft, ShoppingBag, Wand2, Mail, Users, BarChart3, MessageSquare, Sparkles, FileText, Target, ChevronRight, Play, Download, Zap, Shield, Cpu, Globe, Rocket, Bot, Video, Trophy, ChevronLeft, Plus, Calendar, Home } from 'lucide-react';
 
 const NxtGenAI = () => {
   useEffect(() => {
@@ -387,43 +387,6 @@ const NxtGenAI = () => {
     glow: 'rgba(0, 163, 196, 0.15)'
   };
 
-  const categories = [
-    {
-      icon: FileText,
-      title: 'Content Creation',
-      tools: ['Social Media Generator', 'Hashtag Generator', 'Blog SEO Keywords', '30-Day Calendar', 'YouTube Scripts'],
-      color: '#00A3C4'
-    },
-    {
-      icon: Mail,
-      title: 'Business Tools',
-      tools: ['Email Assistant', 'Product Descriptions', 'Real Estate Listings', 'Market Research', 'CV Strategy'],
-      color: '#2B6CB0'
-    },
-    {
-      icon: Bot,
-      title: 'AI Agents',
-      tools: ['Image Generator', 'Virtual Assistant', 'SEO Specialist', 'Growth Coach', 'Sales Strategist'],
-      color: '#00A3C4'
-    },
-    {
-      icon: MessageSquare,
-      title: 'Live AI Chat',
-      tools: ['Gmail Integration', 'Email Management', 'Scheduling', 'Task Management', 'Real-time Messaging'],
-      color: '#2B6CB0'
-    }
-  ];
-
-  const agents = [
-    { name: 'Ecommerce', icon: ShoppingBag },
-    { name: 'Copywriter', icon: FileText },
-    { name: 'Social Media', icon: MessageSquare },
-    { name: 'Support', icon: Users },
-    { name: 'Data Analyst', icon: BarChart3 },
-    { name: 'Recruiter', icon: Target },
-    { name: 'Strategist', icon: Rocket },
-    { name: 'Image AI', icon: Wand2 }
-  ];
 
   const stats = [
     { value: '5,000+', label: 'Users', icon: Users },

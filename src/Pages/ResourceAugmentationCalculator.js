@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, ChevronLeft, X, Users, Clock, Calendar, DollarSign } from 'lucide-react';
+import { ChevronRight, ChevronLeft, X, Clock, Calendar } from 'lucide-react';
 
 const ResourceAugmentationCalculator = () => {
   const [currentStep, setCurrentStep] = useState(1);

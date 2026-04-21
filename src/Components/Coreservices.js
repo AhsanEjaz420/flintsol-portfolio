@@ -10,33 +10,7 @@ const Coreservices = () => {
   const navigate = useNavigate();
   const { services } = useData();
   const handleCardClick = (service) => {
-    // Navigation logic - replace with your routing solution
-    // For demo purposes, you can replace this with your actual navigation
     navigate(`/Core-services?service=${service}`);
-  };
-
-  const getServiceGradient = (serviceId) => {
-    const gradients = {
-      ai: 'linear-gradient(135deg, #9333ea, #2563eb)',
-      web: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-      blockchain: 'linear-gradient(135deg, #eab308, #ea580c)',
-      mobile: 'linear-gradient(135deg, #ec4899, #f43f5e)',
-      mvp: 'linear-gradient(135deg, #f97316, #dc2626)',
-      resource: 'linear-gradient(135deg, #059669, #0d9488)'
-    };
-    return gradients[serviceId] || 'linear-gradient(135deg, #6b7280, #4b5563)';
-  };
-
-  const getAccentColor = (serviceId) => {
-    const colors = {
-      ai: '#2563eb',
-      web: '#06b6d4',
-      blockchain: '#ea580c',
-      mobile: '#f43f5e',
-      mvp: '#dc2626',
-      resource: '#0d9488'
-    };
-    return colors[serviceId] || '#6b7280';
   };
 
   const [sectionRef, isSectionVisible] = useScrollAnimation(0.1);

@@ -17,7 +17,6 @@ import Coreservices from './Components/Coreservices';
 import ResourceAugmentationCalculator from './Pages/ResourceAugmentationCalculator';
 import PortfolioSlider from './Pages/PortfolioSlider';
 import CustomerSupportChatbot from './Pages/CustomerSupportChatbot';
-import CostCalculator from './Pages/Costcalculator';
 import IndustriesSlider from './Pages/IndustriesSlider';
 import MVPModal from './Components/MVPModal';
 import ScrollToTop from './Components/ScrollToTop';
@@ -28,19 +27,21 @@ import { DataProvider } from './contexts/DataContext';
 // Wrapper component to handle location-based modal logic
 function AppContent() {
   const [showMVPModal, setShowMVPModal] = useState(false);
-  const [hasShownModal, setHasShownModal] = useState(false);
+  const [isModalCheckComplete, setIsModalCheckComplete] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     // Check if user has already seen the modal on this session
     const modalShown = sessionStorage.getItem('mvpModalShown');
     
+    // Mark check as complete immediately to prevent flash
+    setIsModalCheckComplete(true);
+    
     // Only show modal on homepage (/) and if not shown before
     if (!modalShown && location.pathname === '/') {
       // Show MVP modal only on first visit to homepage
       const timer = setTimeout(() => {
         setShowMVPModal(true);
-        setHasShownModal(true);
         // Mark as shown in session storage
         sessionStorage.setItem('mvpModalShown', 'true');
       }, 2000); // Show after 2 seconds
@@ -92,10 +93,12 @@ function AppContent() {
       <Footer />
       
       {/* MVP Modal - Shows only on homepage first visit */}
-      <MVPModal 
-        isOpen={showMVPModal} 
-        onClose={() => setShowMVPModal(false)} 
-      />
+      {isModalCheckComplete && (
+        <MVPModal 
+          isOpen={showMVPModal} 
+          onClose={() => setShowMVPModal(false)} 
+        />
+      )}
     </div>
   );
 }
@@ -170,19 +173,6 @@ function App() {
       });
     });
 
-    // Dynamic typing effect for hero subtitle
-    function typeWriter(element, text, speed = 100) {
-      let i = 0;
-      element.innerHTML = '';
-      function type() {
-        if (i < text.length) {
-          element.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(type, speed);
-        }
-      }
-      type();
-    }
     // setTimeout(() => {
     //   const heroSubtitle = document.querySelector('.hero-subtitle');
     //   if (heroSubtitle) typeWriter(heroSubtitle, 'Digital Innovation', 150);

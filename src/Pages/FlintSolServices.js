@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {
   Bot,
   Smartphone,
   Globe,
   Users,
-  Calculator,
-  ArrowRight,
-  Check,
   Star,
   Shield,
   Coins,
@@ -26,39 +23,33 @@ const FlintSolServices = () => {
   }, []);
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("ai");
-  const [aiConfig, setAiConfig] = useState({
+  const [aiConfig] = useState({
     complexity: "basic",
     features: [],
     timeline: "3-6",
   });
 
-  const [mobileConfig, setMobileConfig] = useState({
+  const [mobileConfig] = useState({
     platform: "single",
     complexity: "basic",
     features: [],
     timeline: "2-4",
   });
 
-  const [webConfig, setWebConfig] = useState({
+  const [webConfig] = useState({
     type: "landing",
     features: [],
     complexity: "basic",
     timeline: "2-3",
   });
 
-  const [resourceConfig, setResourceConfig] = useState({
+  const [resourceConfig] = useState({
     role: "developer",
     experience: "mid",
     duration: "3",
     count: 1,
   });
 
-  const [blockchainConfig, setBlockchainConfig] = useState({
-    type: "dapp",
-    blockchain: "ethereum",
-    complexity: "basic",
-    features: [],
-  });
 
   // Update currentPage based on the ?service= query param
   useEffect(() => {
@@ -88,39 +79,6 @@ const FlintSolServices = () => {
         : 18000;
     baseCost += mobileConfig.features.length * 3000;
     return baseCost;
-  };
-
-  const calculateWebCost = () => {
-    let baseCost =
-      webConfig.type === "landing"
-        ? 3000
-        : webConfig.type === "business"
-        ? 8000
-        : 15000;
-    baseCost +=
-      webConfig.complexity === "basic"
-        ? 0
-        : webConfig.complexity === "advanced"
-        ? 5000
-        : 12000;
-    baseCost += webConfig.features.length * 2000;
-    return baseCost;
-  };
-
-  const calculateResourceCost = () => {
-    const rates = {
-      developer: { junior: 25, mid: 45, senior: 75 },
-      designer: { junior: 20, mid: 35, senior: 60 },
-      manager: { junior: 30, mid: 50, senior: 85 },
-      qa: { junior: 18, mid: 30, senior: 50 },
-    };
-    const hourlyRate = rates[resourceConfig.role][resourceConfig.experience];
-    return (
-      hourlyRate *
-      160 *
-      parseInt(resourceConfig.duration) *
-      resourceConfig.count
-    ); // 160 hours per month
   };
 
   const AIAutomation = () => (

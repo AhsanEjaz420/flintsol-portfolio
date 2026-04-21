@@ -10,11 +10,8 @@ import {
   Image as ImageIcon, 
   Video as VideoIcon, 
   ChevronRight, 
-  Play, 
-  Download,
   Menu,
   X,
-  ExternalLink,
   Cpu,
   Monitor,
   Globe,
@@ -42,6 +39,8 @@ const Eden = () => {
     border: 'rgba(243, 176, 51, 0.3)', // Gold Border (more visible on light)
     glow: 'rgba(197, 160, 89, 0.08)'    // Subtle Gold Glow
   };
+  // eslint-disable-next-line no-unused-vars
+  void theme;
 
   const features = [
     {
@@ -455,17 +454,17 @@ const Eden = () => {
                 <div>
                   <div className="text-[9px] uppercase tracking-widest text-gray-500 mb-4 tracking-[0.3em]">Corporate</div>
                   <div className="space-y-2">
-                    <a href="#" className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Philosophy</a>
-                    <a href="#" className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Press Kit</a>
-                    <a href="#" className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Legal</a>
+                    <button className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Philosophy</button>
+                    <button className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Press Kit</button>
+                    <button className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Legal</button>
                   </div>
                 </div>
                 <div>
                   <div className="text-[9px] uppercase tracking-widest text-gray-500 mb-4 tracking-[0.3em]">Social</div>
                   <div className="space-y-2">
-                    <a href="#" className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">X.com</a>
-                    <a href="#" className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Discord</a>
-                    <a href="#" className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">LinkedIn</a>
+                    <button className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">X.com</button>
+                    <button className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">Discord</button>
+                    <button className="block text-[10px] uppercase tracking-widest text-gray-600 hover:text-[#C5A059] transition-all">LinkedIn</button>
                   </div>
                 </div>
               </div>

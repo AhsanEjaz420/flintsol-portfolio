@@ -38,12 +38,8 @@ function useNavbarBackground() {
       // Check if we're in the header section (first ~100vh)
       const headerSectionHeight = window.innerHeight;
       
-      // Check if we're on specific pages that should have colored navbar
-      const currentPath = window.location.pathname;
-      const coloredBackgroundPages = ['/portfolio', '/contact', '/about', '/Costcalculator', '/Core-services', '/mvp-services'];
-      const isOnColoredPage = coloredBackgroundPages.some(page => currentPath.includes(page));
-      
       // Check if we're on the homepage
+      const currentPath = window.location.pathname;
       const isOnHomepage = currentPath === '/';
       
       if (scrollPosition <= headerSectionHeight && isOnHomepage) {

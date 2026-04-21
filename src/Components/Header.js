@@ -841,6 +841,7 @@ const Header = () => {
           visibility: visible;
           transform: translateX(-50%) translateY(0);
           pointer-events: auto;
+          z-index: 1000;
         }
 
         .services-link-wrapper {
@@ -868,13 +869,14 @@ const Header = () => {
           margin-top: 0.5rem;
           opacity: 0;
           visibility: hidden;
+          pointer-events: none;
           transition: all 0.4s var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1));
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
             0 0 0 1px rgba(255, 107, 53, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(30px) saturate(180%);
           -webkit-backdrop-filter: blur(30px) saturate(180%);
-          z-index: 1000;
+          z-index: -1;
           border: 1px solid rgba(255, 107, 53, 0.1);
         }
 

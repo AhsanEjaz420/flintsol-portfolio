@@ -353,6 +353,16 @@ function App() {
     `;
     document.head.appendChild(loadingStyles);
     document.body.appendChild(loadingScreen);
+
+    // Show the React root content after a short delay to ensure loading screen is visible
+    const root = document.getElementById('root');
+    if (root) {
+      // Small delay to ensure loading screen renders first
+      requestAnimationFrame(() => {
+        root.classList.add('content-visible');
+      });
+    }
+
     setTimeout(() => {
       loadingScreen.style.opacity = '0';
       setTimeout(() => {

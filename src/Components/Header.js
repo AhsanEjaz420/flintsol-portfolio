@@ -259,7 +259,7 @@ const Header = () => {
                 {/* Desktop Mega Dropdown */}
                 {dropdownOpen && (
                   <div
-                    className="mega-dropdown"
+                    className="mega-dropdown mega-dropdown--open"
                     onMouseEnter={() => {
                       if (window.innerWidth > 768) {
                         if (dropdownTimeout) {
@@ -830,16 +830,8 @@ const Header = () => {
           position: relative;
         }
 
-        .services-dropdown:hover .mega-dropdown {
-          opacity: 1;
-          visibility: visible;
-          transform: translateX(-50%) translateY(0);
-          pointer-events: auto;
-          z-index: 1000;
-        }
-
         .services-link-wrapper {
-          position: relative;
+          position: static;
         }
 
         .mobile-services-menu {
@@ -850,7 +842,8 @@ const Header = () => {
           position: absolute;
           top: 100%;
           left: 50%;
-          transform: translateX(-50%) translateY(-10px) scale(0.95);
+          margin-left: -450px;
+          transform: translateY(-10px) scale(0.95);
           width: 900px;
           background: linear-gradient(
             135deg,
@@ -872,6 +865,14 @@ const Header = () => {
           -webkit-backdrop-filter: blur(30px) saturate(180%);
           z-index: -1;
           border: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .mega-dropdown--open {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          z-index: 1000;
+          transform: translateY(0) scale(1);
         }
 
         .mega-dropdown-content {
@@ -1143,6 +1144,7 @@ const Header = () => {
 
           .mega-dropdown {
             width: 750px;
+            margin-left: -375px;
           }
 
           .stats {
@@ -1447,6 +1449,7 @@ const Header = () => {
         @media (min-width: 1200px) {
           .mega-dropdown {
             width: 950px;
+            margin-left: -475px;
           }
 
           .nav-container {
@@ -1458,6 +1461,7 @@ const Header = () => {
         @media (min-width: 1400px) {
           .mega-dropdown {
             width: 1000px;
+            margin-left: -500px;
           }
         }
       `}</style>

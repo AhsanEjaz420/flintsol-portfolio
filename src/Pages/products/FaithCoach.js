@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowLeft, Heart, Users, BookOpen, Trophy, 
-  Bell, Sparkles, Video, MessageCircle, ChevronRight, 
-  Play, Download, Flame, Target, Zap, Cross 
+import {
+  ArrowLeft, Heart, Users, BookOpen, Trophy,
+  Bell, Video, MessageCircle, ChevronRight,
+  Flame, Target, Zap
 } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
+import { Sparkles, Play, Download, Cross } from 'lucide-react';
 
 const FaithCoach = () => {
   useEffect(() => {

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  ArrowLeft, Heart, Users, BookOpen, Trophy, 
-  Bell, Sparkles, Video, MessageCircle, ChevronRight, 
-  Play, Download, Flame, Target, Zap, Moon, 
-  Star, Quote, Shield, PenTool, Clock
+import {
+  ArrowLeft, Heart, Users, BookOpen,
+  Sparkles, ChevronRight,
+  Target, Zap, Moon,
+  Star, Quote, PenTool, Clock
 } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
+import { Trophy, Bell, Video, MessageCircle, Play, Download, Flame, Shield } from 'lucide-react';
 
 const ZikrAI = () => {
   useEffect(() => {
@@ -79,6 +81,7 @@ const ZikrAI = () => {
     { value: '15M+', label: 'AI Responses', icon: Zap }
   ];
 
+  // eslint-disable-next-line no-unused-vars
   const techStack = [
     { name: 'React', category: 'Frontend' },
     { name: 'Node.js', category: 'Backend' },

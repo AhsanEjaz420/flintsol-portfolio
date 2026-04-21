@@ -257,34 +257,27 @@ const Header = () => {
                 </Link>
                 
                 {/* Desktop Mega Dropdown */}
-                <div
-                  className="mega-dropdown"
-                  onMouseEnter={() => {
-                    if (window.innerWidth > 768) {
-                      if (dropdownTimeout) {
-                        clearTimeout(dropdownTimeout);
-                        setDropdownTimeout(null);
+                {dropdownOpen && (
+                  <div
+                    className="mega-dropdown"
+                    onMouseEnter={() => {
+                      if (window.innerWidth > 768) {
+                        if (dropdownTimeout) {
+                          clearTimeout(dropdownTimeout);
+                          setDropdownTimeout(null);
+                        }
+                        setDropdownOpen(true);
                       }
-                      setDropdownOpen(true);
-                    }
-                  }}
-                  onMouseLeave={() => {
-                    if (window.innerWidth > 768) {
-                      const timeout = setTimeout(() => {
-                        setDropdownOpen(false);
-                      }, 150);
-                      setDropdownTimeout(timeout);
-                    }
-                  }}
-                  style={{
-                    opacity: dropdownOpen ? 1 : 0,
-                    visibility: dropdownOpen ? "visible" : "hidden",
-                    transform: dropdownOpen
-                      ? "translateX(-50%) translateY(0)"
-                      : "translateX(-50%) translateY(-10px)",
-                    pointerEvents: dropdownOpen ? "auto" : "none",
-                  }}
-                >
+                    }}
+                    onMouseLeave={() => {
+                      if (window.innerWidth > 768) {
+                        const timeout = setTimeout(() => {
+                          setDropdownOpen(false);
+                        }, 150);
+                        setDropdownTimeout(timeout);
+                      }
+                    }}
+                  >
                   <div className="mega-dropdown-content">
                     <div className="services-list">
                       <div
@@ -554,6 +547,7 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
+                )}
                 
                                  {/* Mobile Services Submenu */}
                  <div className={`mobile-services-menu ${mobileServicesOpen ? 'open' : ''}`}>

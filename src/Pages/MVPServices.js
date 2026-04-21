@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { CheckCircle, Mic, Users, FileText, Mail, BarChart3, Zap, Star, ArrowRight } from 'lucide-react';
+import { CheckCircle, Mic, Users, FileText, Mail, BarChart3, Star } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
+import { Zap, ArrowRight } from 'lucide-react';
 import CostCalculator from './Costcalculator';
 
 

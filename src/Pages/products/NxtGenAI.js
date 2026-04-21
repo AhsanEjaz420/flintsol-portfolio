@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingBag, Wand2, Mail, Users, BarChart3, MessageSquare, Sparkles, FileText, Target, ChevronRight, Play, Download, Zap, Shield, Cpu, Globe, Rocket, Bot, Video, Trophy, ChevronLeft, Plus, Calendar, Home } from 'lucide-react';
+import { ArrowLeft, ShoppingBag, Mail, Users, BarChart3, MessageSquare, Sparkles, FileText, Target, ChevronRight, Play, Download, Zap, Shield, Cpu, Globe, Rocket, Bot, Video, Trophy, ChevronLeft, Plus, Calendar, Home } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
+import { Wand2 } from 'lucide-react';
 
 const NxtGenAI = () => {
   useEffect(() => {

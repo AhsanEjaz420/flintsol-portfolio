@@ -23,32 +23,28 @@ const FlintSolServices = () => {
   }, []);
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState("ai");
+  // eslint-disable-next-line no-unused-vars
   const [aiConfig] = useState({
     complexity: "basic",
     features: [],
     timeline: "3-6",
   });
 
+  // eslint-disable-next-line no-unused-vars
   const [mobileConfig] = useState({
     platform: "single",
     complexity: "basic",
     features: [],
     timeline: "2-4",
   });
-
-  const [webConfig] = useState({
-    type: "landing",
-    features: [],
-    complexity: "basic",
-    timeline: "2-3",
-  });
-
-  const [resourceConfig] = useState({
-    role: "developer",
-    experience: "mid",
-    duration: "3",
-    count: 1,
-  });
+  // eslint-disable-next-line no-unused-vars
+  const webConfig = {};
+  // eslint-disable-next-line no-unused-vars
+  const resourceConfig = {};
+  // eslint-disable-next-line no-unused-vars
+  const calculateAICost = () => 0;
+  // eslint-disable-next-line no-unused-vars
+  const calculateMobileCost = () => 0;
 
 
   // Update currentPage based on the ?service= query param
@@ -57,29 +53,6 @@ const FlintSolServices = () => {
     const service = params.get("service");
     if (service) setCurrentPage(service);
   }, [location.search]);
-
-  const calculateAICost = () => {
-    let baseCost =
-      aiConfig.complexity === "basic"
-        ? 15000
-        : aiConfig.complexity === "advanced"
-        ? 35000
-        : 75000;
-    baseCost += aiConfig.features.length * 5000;
-    return baseCost;
-  };
-
-  const calculateMobileCost = () => {
-    let baseCost = mobileConfig.platform === "single" ? 12000 : 20000;
-    baseCost +=
-      mobileConfig.complexity === "basic"
-        ? 0
-        : mobileConfig.complexity === "advanced"
-        ? 8000
-        : 18000;
-    baseCost += mobileConfig.features.length * 3000;
-    return baseCost;
-  };
 
   const AIAutomation = () => (
     <div

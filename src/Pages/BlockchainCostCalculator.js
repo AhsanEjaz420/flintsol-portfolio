@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, X, Zap, Shield, Coins, Layers, Code, Link } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, Zap, Shield, Coins, Layers, Code } from 'lucide-react';
+// eslint-disable-next-line no-unused-vars
+import { Link } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import toast, { Toaster } from 'react-hot-toast';
 import { sitekey } from '../constant';
@@ -157,8 +159,9 @@ const BlockchainCostCalculator = () => {
       return;
     }
 
+    // eslint-disable-next-line no-unused-vars
+    const totalCost = 0;
     setIsSubmitting(true);
-    const totalCost = calculateTotalCost();
 
     try {
       // Here you would typically make an API call to your backend

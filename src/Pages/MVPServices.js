@@ -67,89 +67,59 @@ const MVPServicesShowcase = () => {
   ];
 
   return (
-<div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">      {/* Hero Section */}
-      {/* <div className="relative overflow-hidden min-h-screen flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
-            <div className="inline-flex items-center mt-16 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-400/30 mb-8">
-              <Zap className="w-4 h-4 text-blue-400 mr-2" />
-              <span className="text-blue-300 text-sm font-medium">AI-Powered MVP Solutions</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Complete <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">AI Suite</span>
-            </h1>
-            
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Transform your business with our comprehensive AI services package. Voice transcription, 
-              speaker identification, intelligent summarization, and seamless integrations.
-            </p>
+<div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+      </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
-              <div className="text-center">
-                <div className="text-6xl font-bold text-white mb-2">$1000</div>
-                <div className="text-purple-300 text-lg">Complete MVP Package</div>
-                <div className="text-gray-400 text-sm">One-time setup fee</div>
-              </div>
-              
-              <div className="hidden sm:block w-px h-16 bg-gray-600"></div>
-              
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-2">95%+</div>
-                <div className="text-gray-300">Accuracy Rate</div>
-              </div>
-              
-              <div className="hidden sm:block w-px h-16 bg-gray-600"></div>
-              
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">24/7</div>
-                <div className="text-gray-300">Processing</div>
-              </div>
-            </div>
-
-            <button className="group bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">
-              Get Started Now
-              <ArrowRight className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </div> */}
+      <div className="relative z-10">
       <CostCalculator/>
 
       {/* Services Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">MVP Services Included</h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent animate-gradient">
+            MVP Services Included
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Everything you need to build and deploy AI-powered solutions for your business
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Service Navigation */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
+                className={`group relative p-8 rounded-3xl cursor-pointer transition-all duration-500 overflow-hidden ${
                   activeService === index
-                    ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/50 shadow-xl'
-                    : 'bg-slate-800/50 border border-slate-700 hover:bg-slate-800/70'
+                    ? 'bg-gray-800/40 backdrop-blur-2xl border border-orange-500/60 shadow-2xl shadow-orange-500/30'
+                    : 'bg-gray-800/30 backdrop-blur-2xl border border-gray-700/50 hover:border-orange-500/60 hover:shadow-2xl hover:shadow-orange-500/20'
                 }`}
                 onClick={() => setActiveService(index)}
               >
-                <div className="flex items-start space-x-4">
-                  <div className={`p-3 rounded-xl ${
+                {/* Card Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/0 transition-all duration-500"></div>
+                
+                <div className="relative z-10 flex items-start space-x-4">
+                  <div className={`p-4 rounded-2xl transition-all duration-500 group-hover:scale-110 ${
                     activeService === index 
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white' 
-                      : 'bg-slate-700 text-gray-300'
+                      ? 'bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 text-white shadow-xl shadow-orange-500/30' 
+                      : 'bg-gray-700/50 text-gray-300 group-hover:bg-gray-700'
                   }`}>
                     {service.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
-                    <p className="text-gray-300 text-sm">{service.description}</p>
+                    <h3 className={`text-2xl font-semibold mb-3 transition-colors duration-300 ${
+                      activeService === index ? 'text-white' : 'text-white group-hover:text-orange-200'
+                    }`}>{service.title}</h3>
+                    <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+                      activeService === index ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                    }`}>{service.description}</p>
                   </div>
                 </div>
               </div>
@@ -157,9 +127,9 @@ const MVPServicesShowcase = () => {
           </div>
 
           {/* Service Details */}
-          <div className="bg-slate-800/50 rounded-3xl p-8 border border-slate-700">
+          <div className="bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/60 transition-all duration-500 hover:shadow-2xl hover:shadow-orange-500/30">
             <div className="flex items-center space-x-4 mb-6">
-              <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-white">
+              <div className="p-4 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-2xl text-white shadow-xl shadow-orange-500/30">
                 {services[activeService].icon}
               </div>
               <div>
@@ -172,7 +142,7 @@ const MVPServicesShowcase = () => {
               <h4 className="text-lg font-semibold text-white mb-4">Key Features:</h4>
               {services[activeService].features.map((feature, index) => (
                 <div key={index} className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0" />
                   <span className="text-gray-300">{feature}</span>
                 </div>
               ))}
@@ -182,23 +152,30 @@ const MVPServicesShowcase = () => {
       </div>
 
       {/* Testimonials */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white rounded-3xl shadow-2xl border border-gray-200">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-20">
+          <h2 className="text-7xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent animate-gradient">
+            What Our Clients Say
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-50 rounded-2xl p-6 border border-gray-200 shadow-md">
-              <div className="flex space-x-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-4">"{testimonial.comment}"</p>
-              <div>
-                <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                <div className="text-sm text-gray-500">{testimonial.role}</div>
+            <div key={index} className="group relative bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden">
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/0 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="flex space-x-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-orange-500 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-300 mb-4 leading-relaxed">"{testimonial.comment}"</p>
+                <div>
+                  <div className="font-semibold text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-400">{testimonial.role}</div>
+                </div>
               </div>
             </div>
           ))}
@@ -206,6 +183,7 @@ const MVPServicesShowcase = () => {
       </div>
 
       {/* CTA Section */}
+      </div>
     </div>
   );
 };

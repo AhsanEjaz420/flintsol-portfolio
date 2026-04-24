@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { Zap, Bot, Link2, Laptop, Smartphone, Users } from 'lucide-react';
 import logo from "../assets/Untitled_design__22_-removebg-preview.png"
 
 function useScrollDirection() {
@@ -116,13 +117,6 @@ const Header = () => {
       }
     };
   }, [dropdownTimeout]);
-
-  // Mock Link component for demo
-  const Link = ({ to, children, onClick, className = "" }) => (
-    <a href={to} onClick={onClick} className={`nav-link ${className}`}>
-      {children}
-    </a>
-  );
 
   // Dynamic background styles
   const getHeaderStyles = () => {
@@ -246,11 +240,6 @@ const Header = () => {
                       setDropdownOpen(true);
                     }
                   }}
-                  onMouseLeave={() => {
-                    if (window.innerWidth > 768) {
-                      setDropdownOpen(false);
-                    }
-                  }}
                 >
                   Our services
                   <span className={`dropdown-arrow ${mobileServicesOpen ? 'open' : ''}`}>▼</span>
@@ -290,7 +279,7 @@ const Header = () => {
                           setDropdownOpen(false);
                         }}
                       >
-                        <div className="service-icon">⚡</div>
+                        <div className="service-icon"><Zap style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                         <span>MVP Development</span>
                       </div>
                       <div
@@ -303,7 +292,7 @@ const Header = () => {
                           setDropdownOpen(false);
                         }}
                       >
-                        <div className="service-icon">🤖</div>
+                        <div className="service-icon"><Bot style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                         <span>AI & Automation</span>
                       </div>
                       <div
@@ -316,7 +305,7 @@ const Header = () => {
                           setDropdownOpen(false);
                         }}
                       >
-                        <div className="service-icon">⛓️</div>
+                        <div className="service-icon"><Link2 style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                         <span>Blockchain Development</span>
                       </div>
                       <div
@@ -329,7 +318,7 @@ const Header = () => {
                           setDropdownOpen(false);
                         }}
                       >
-                        <div className="service-icon">💻</div>
+                        <div className="service-icon"><Laptop style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                         <span>Web Development</span>
                       </div>
                       <div
@@ -342,7 +331,7 @@ const Header = () => {
                           setDropdownOpen(false);
                         }}
                       >
-                        <div className="service-icon">📱</div>
+                        <div className="service-icon"><Smartphone style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                         <span>Mobile App Development</span>
                       </div>
                       <div
@@ -355,7 +344,7 @@ const Header = () => {
                           setDropdownOpen(false);
                         }}
                       >
-                        <div className="service-icon">👥</div>
+                        <div className="service-icon"><Users style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                         <span>Resource Augmentation</span>
                       </div>
                     </div>
@@ -388,7 +377,7 @@ const Header = () => {
                               textShadow: "0 1px 2px rgba(0,0,0,0.3)",
                             }}
                           >
-                            ⚡ 2-Week Delivery
+                            <Zap style={{ width: '1rem', height: '1rem', display: 'inline', verticalAlign: 'middle', marginRight: '4px' }} /> 2-Week Delivery
                           </span>
                           <span
                             className="price-badge"
@@ -556,7 +545,7 @@ const Header = () => {
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
-                    <div className="mobile-service-icon">⚡</div>
+                    <div className="mobile-service-icon"><Zap style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                     <div className="mobile-service-content">
                       <span className="mobile-service-title">MVP Development</span>
                       <span className="mobile-service-desc">2-Week Delivery • $1,000+</span>
@@ -567,7 +556,7 @@ const Header = () => {
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
-                    <div className="mobile-service-icon">🤖</div>
+                    <div className="mobile-service-icon"><Bot style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                     <div className="mobile-service-content">
                       <span className="mobile-service-title">AI & Automation</span>
                       <span className="mobile-service-desc">Intelligent Solutions</span>
@@ -578,7 +567,7 @@ const Header = () => {
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
-                    <div className="mobile-service-icon">⛓️</div>
+                    <div className="mobile-service-icon"><Link2 style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                     <div className="mobile-service-content">
                       <span className="mobile-service-title">Blockchain Development</span>
                       <span className="mobile-service-desc">Smart Contracts & DApps</span>
@@ -589,7 +578,7 @@ const Header = () => {
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
-                    <div className="mobile-service-icon">💻</div>
+                    <div className="mobile-service-icon"><Laptop style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                     <div className="mobile-service-content">
                       <span className="mobile-service-title">Web Development</span>
                       <span className="mobile-service-desc">Full-Stack Solutions</span>
@@ -600,7 +589,7 @@ const Header = () => {
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
-                    <div className="mobile-service-icon">📱</div>
+                    <div className="mobile-service-icon"><Smartphone style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                     <div className="mobile-service-content">
                       <span className="mobile-service-title">Mobile App Development</span>
                       <span className="mobile-service-desc">iOS & Android</span>
@@ -611,7 +600,7 @@ const Header = () => {
                     setMenuOpen(false);
                     setMobileServicesOpen(false);
                   }}>
-                    <div className="mobile-service-icon">👥</div>
+                    <div className="mobile-service-icon"><Users style={{ width: '1.5rem', height: '1.5rem', color: '#ff6b35' }} /></div>
                     <div className="mobile-service-content">
                       <span className="mobile-service-title">Resource Augmentation</span>
                       <span className="mobile-service-desc">Scale Your Team</span>
@@ -701,8 +690,8 @@ const Header = () => {
         .menu-toggle {
           display: none;
           flex-direction: column;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: var(--glass-elegant);
+          border: 1px solid var(--border-color-elegant);
           cursor: pointer;
           padding: 0.75rem;
           position: relative;
@@ -780,7 +769,7 @@ const Header = () => {
         }
 
         .nav-links a {
-          color: #e2e8f0;
+          color: var(--color-text-primary-dark);
           text-decoration: none;
           font-weight: 500;
           transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
@@ -818,7 +807,7 @@ const Header = () => {
         .dropdown-arrow {
           font-size: 0.75rem;
           transition: transform 0.3s ease;
-          color: #94a3b8;
+          color: var(--color-text-secondary-dark);
         }
 
         .services-dropdown:hover .dropdown-arrow {
@@ -847,8 +836,8 @@ const Header = () => {
           width: 900px;
           background: linear-gradient(
             135deg,
-            rgba(15, 23, 42, 0.98) 0%,
-            rgba(30, 41, 59, 0.98) 50%,
+            var(--color-bg-dark-elegant) 0%,
+            var(--color-bg-card-dark) 50%,
             rgba(51, 65, 85, 0.98) 100%
           );
           border-radius: var(--radius-lg, 1.5rem);
@@ -949,7 +938,7 @@ const Header = () => {
         }
 
         .service-item span {
-          color: #e2e8f0;
+          color: var(--color-text-primary-dark);
           font-weight: 500;
           font-size: 0.95rem;
           transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
@@ -1005,7 +994,7 @@ const Header = () => {
         }
 
         .service-detail li {
-          color: #94a3b8;
+          color: var(--color-text-secondary-dark);
           font-size: 0.875rem;
           margin-bottom: 0.75rem;
           padding-left: 1.5rem;
@@ -1023,7 +1012,7 @@ const Header = () => {
         }
 
         .service-detail li:hover {
-          color: #e2e8f0;
+          color: var(--color-text-primary-dark);
           transform: translateX(8px);
         }
 
@@ -1079,7 +1068,7 @@ const Header = () => {
         }
 
         .statsli {
-          color: #94a3b8;
+          color: var(--color-text-secondary-dark);
           font-size: 0.875rem;
           font-weight: 500;
           padding: 0.25rem 0.75rem;
@@ -1291,14 +1280,14 @@ const Header = () => {
           }
 
           .mobile-service-title {
-            color: #e2e8f0;
+            color: var(--color-text-primary-dark);
             font-weight: 500;
             font-size: 0.95rem;
             transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           }
 
           .mobile-service-desc {
-            color: #94a3b8;
+            color: var(--color-text-secondary-dark);
             font-size: 0.8rem;
             transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
           }
@@ -1343,7 +1332,7 @@ const Header = () => {
              right: -100%;
              width: 300px;
              height: 100vh;
-             background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+             background: linear-gradient(180deg, var(--color-bg-dark-elegant) 0%, var(--color-bg-card-dark) 100%);
              flex-direction: column;
              justify-content: flex-start;
              align-items: stretch;
@@ -1370,9 +1359,9 @@ const Header = () => {
              display: block;
              width: 100%;
              padding: 1rem 1.25rem;
-             color: #e2e8f0;
+             color: var(--color-text-primary-dark);
              border-radius: 0.75rem;
-             background: rgba(255, 255, 255, 0.05);
+             background: var(--glass-elegant);
              margin-bottom: 0.25rem;
              transition: all 0.3s var(--ease-in-out, cubic-bezier(0.4, 0, 0.2, 1));
              border: 1px solid transparent;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Facebook, Twitter, Linkedin, Instagram, Github, Mail } from 'lucide-react';
 import logo from '../assets/Untitled_design__22_-removebg-preview.png';
 
 const Footer = () => {
@@ -12,6 +13,15 @@ const Footer = () => {
     { to: '/Portfolio', label: 'Portfolio' },
     { to: '/industries', label: 'Industries' },
     { to: '/contact', label: 'Contact' }
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, href: '#', label: 'Facebook' },
+    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Mail, href: 'mailto:contact@flint-sol.com', label: 'Email' }
   ];
 
   return (
@@ -44,6 +54,22 @@ const Footer = () => {
               </Link>
             ))}
           </nav>
+
+          {/* Social Links */}
+          <div className="footer-social">
+            {socialLinks.map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                className="footer-social-link"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label={social.label}
+              >
+                <social.icon className="footer-social-icon" />
+              </motion.a>
+            ))}
+          </div>
         </div>
 
         {/* Divider */}

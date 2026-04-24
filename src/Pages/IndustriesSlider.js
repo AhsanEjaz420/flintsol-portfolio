@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Building2, CreditCard, ShoppingBag, BookOpen, Building, Scale, Cloud, Truck, Gamepad2, Globe, Sprout, Plane, Film, Factory, HandHeart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const IndustriesSlider = () => {
   const navigate = useNavigate();
@@ -29,21 +30,21 @@ const IndustriesSlider = () => {
 
   // All 15 industries from main Industries page
   const industries = [
-    { name: 'HealthTech', icon: '🏥', description: 'Digital health solutions & medical platforms' },
-    { name: 'FinTech', icon: '💳', description: 'Financial apps & payment systems' },
-    { name: 'E-Commerce', icon: '🛒', description: 'Online stores & marketplace solutions' },
-    { name: 'EdTech', icon: '📚', description: 'Educational platforms & learning management' },
-    { name: 'Real Estate', icon: '🏢', description: 'Property management & listing platforms' },
-    { name: 'LegalTech', icon: '⚖️', description: 'Legal management & compliance tools' },
-    { name: 'SaaS Platforms', icon: '☁️', description: 'Cloud-based software solutions' },
-    { name: 'Logistics', icon: '🚚', description: 'Supply chain & delivery management' },
-    { name: 'Gaming', icon: '🎮', description: 'Mobile games & interactive entertainment' },
-    { name: 'IoT Solutions', icon: '🌐', description: 'Connected devices & smart systems' },
-    { name: 'AgriTech', icon: '🌱', description: 'Agricultural technology & farming solutions' },
-    { name: 'Travel & Tourism', icon: '✈️', description: 'Booking platforms & travel management' },
-    { name: 'Media & Entertainment', icon: '🎬', description: 'Streaming platforms & content management' },
-    { name: 'Manufacturing', icon: '🏭', description: 'Industrial automation & process optimization' },
-    { name: 'Non-Profit', icon: '🤝', description: 'Community platforms & donation management' }
+    { name: 'HealthTech', icon: Building2, description: 'Digital health solutions & medical platforms' },
+    { name: 'FinTech', icon: CreditCard, description: 'Financial apps & payment systems' },
+    { name: 'E-Commerce', icon: ShoppingBag, description: 'Online stores & marketplace solutions' },
+    { name: 'EdTech', icon: BookOpen, description: 'Educational platforms & learning management' },
+    { name: 'Real Estate', icon: Building, description: 'Property management & listing platforms' },
+    { name: 'LegalTech', icon: Scale, description: 'Legal management & compliance tools' },
+    { name: 'SaaS Platforms', icon: Cloud, description: 'Cloud-based software solutions' },
+    { name: 'Logistics', icon: Truck, description: 'Supply chain & delivery management' },
+    { name: 'Gaming', icon: Gamepad2, description: 'Mobile games & interactive entertainment' },
+    { name: 'IoT Solutions', icon: Globe, description: 'Connected devices & smart systems' },
+    { name: 'AgriTech', icon: Sprout, description: 'Agricultural technology & farming solutions' },
+    { name: 'Travel & Tourism', icon: Plane, description: 'Booking platforms & travel management' },
+    { name: 'Media & Entertainment', icon: Film, description: 'Streaming platforms & content management' },
+    { name: 'Manufacturing', icon: Factory, description: 'Industrial automation & process optimization' },
+    { name: 'Non-Profit', icon: HandHeart, description: 'Community platforms & donation management' }
   ];
 
   // Group projects into slides based on itemsPerSlide
@@ -149,26 +150,26 @@ const IndustriesSlider = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden py-16 sm:py-20 lg:py-24" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)' }}>
+    <section className="min-h-screen relative overflow-hidden py-16 sm:py-20 lg:py-24" style={{ background: 'var(--color-bg-dark-elegant)' }}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-40 right-20 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-200/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
         {/* Compact Header Section */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-orange-50 backdrop-blur-sm rounded-full px-6 py-2 mb-6 border border-orange-200 shadow-lg shadow-orange-100/50">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100/10 to-orange-50/10 backdrop-blur-sm rounded-full px-6 py-2 mb-6 border border-orange-200/20 shadow-lg shadow-orange-100/20">
             <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-            <span className="text-orange-600 text-xs font-semibold" style={{ fontFamily: 'var(--font-sans)' }}>Featured Industries</span>
+            <span className="text-orange-500 text-xs font-semibold" style={{ fontFamily: 'var(--font-sans)' }}>Featured Industries</span>
           </div>
-          
-          <h2 
-            className="mb-3 leading-tight" 
-            style={{ 
-              fontFamily: 'var(--font-sans)', 
+
+          <h2
+            className="mb-3 leading-tight"
+            style={{
+              fontFamily: 'var(--font-sans)',
               fontSize: 'clamp(3.5rem, 7vw, 4.5rem)',
               fontWeight: '800',
               background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 50%, #ff6b35 100%)',
@@ -181,8 +182,8 @@ const IndustriesSlider = () => {
           >
             Industries We Transform
           </h2>
-          
-          <p className="text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-sans)', color: '#666666' }}>
+
+          <p className="text-sm md:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text-secondary-dark)' }}>
             Transforming businesses across key sectors with innovative technology solutions.
           </p>
         </div>
@@ -223,9 +224,14 @@ const IndustriesSlider = () => {
                       : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
                   }`}>
                     {slide.map((industry, itemIndex) => (
-                      <div
+                      <motion.div
                         key={itemIndex}
-                        className="group relative p-6 cursor-pointer rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden min-h-[320px] flex items-center justify-center bg-white/70 border-white/50 hover:border-orange-200"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: itemIndex * 0.1 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group relative p-6 cursor-pointer rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:shadow-2xl overflow-hidden min-h-[320px] flex items-center justify-center elegant-card"
                         style={{ transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}
                       >
                         {/* Gradient Background */}
@@ -236,22 +242,31 @@ const IndustriesSlider = () => {
 
                         {/* Card Content */}
                         <div className="relative z-10 text-center">
-                          <div className="text-4xl sm:text-5xl mb-4 transform transition-all duration-500 group-hover:scale-110">
-                            {industry.icon}
-                          </div>
+                          <motion.div 
+                            className="mb-4 flex justify-center"
+                            whileHover={{ scale: 1.1, rotate: 5 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <industry.icon className="w-12 h-12 sm:w-16 sm:h-16" style={{ color: '#ff6b35' }} />
+                          </motion.div>
 
-                          <h3 className="font-bold text-lg sm:text-xl mb-2 transition-all duration-300 text-gray-800 group-hover:text-orange-600" style={{ fontFamily: 'var(--font-sans)' }}>
+                          <h3 className="font-bold text-lg sm:text-xl mb-2 transition-all duration-300 group-hover:text-orange-600" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text-primary-dark)' }}>
                             {industry.name}
                           </h3>
 
-                          <p className="text-sm leading-relaxed transition-all duration-500 text-gray-600" style={{ fontFamily: 'var(--font-sans)' }}>
+                          <p className="text-sm leading-relaxed transition-all duration-500" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text-secondary-dark)' }}>
                             {industry.description}
                           </p>
 
                           {/* Hover Indicator */}
-                          <div className="mt-4 w-8 h-1 rounded-full mx-auto transition-all duration-500 bg-gradient-to-r from-orange-300 to-orange-500 group-hover:w-16"></div>
+                          <motion.div 
+                            className="mt-4 h-1 rounded-full mx-auto bg-gradient-to-r from-orange-300 to-orange-500"
+                            initial={{ width: 32 }}
+                            whileHover={{ width: 64 }}
+                            transition={{ duration: 0.3 }}
+                          ></motion.div>
                         </div>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>

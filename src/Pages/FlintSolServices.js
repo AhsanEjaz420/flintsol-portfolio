@@ -14,7 +14,7 @@ import ResourceAugmentationCalculator from "./ResourceAugmentationCalculator";
 import BlockchainCostCalculator from "./BlockchainCostCalculator";
 
 const heroBackgrounds = {
-  blockchain: 'bg-gradient-to-br from-slate-900 via-yellow-900 to-slate-800',
+  blockchain: 'bg-gradient-to-br from-black via-gray-900 to-black',
 };
 
 const FlintSolServices = () => {
@@ -56,19 +56,26 @@ const FlintSolServices = () => {
 
   const AIAutomation = () => (
     <div
-      className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+      className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden"
       style={{ fontFamily: "inherit" }}
     >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+      </div>
+
       {/* Header */}
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-4 sm:px-6 py-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mt-10 w-20 h-20 bg-orange-500 rounded-2xl mb-6">
-            <Bot className="w-10 h-10 text-white" />
+          <div className="inline-flex items-center justify-center mt-8 sm:mt-10 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-3xl mb-6 sm:mb-8 shadow-2xl shadow-orange-500/40 animate-bounce-slow">
+            <Bot className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-white" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent animate-gradient">
             AI & Automation
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Transform your business with cutting-edge artificial intelligence
             solutions that automate processes, enhance decision-making, and
             drive unprecedented growth through intelligent automation.
@@ -105,15 +112,21 @@ const FlintSolServices = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm border border-slate-700"
+              className="group relative bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
-                <Star className="w-6 h-6 text-white" />
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/0 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-orange-500/30 group-hover:shadow-2xl group-hover:shadow-orange-500/50 transition-all duration-500 group-hover:scale-110">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400">{feature.desc}</p>
             </div>
           ))}
         </div>
@@ -218,16 +231,24 @@ const FlintSolServices = () => {
   );
 
   const MobileAppDevelopment = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800">
-      <div className="container mx-auto px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+      </div>
+
+      {/* Header */}
+      <div className="container mx-auto px-4 sm:px-6 py-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mt-10 w-20 h-20 bg-orange-500 rounded-2xl mb-6">
-            <Smartphone className="w-10 h-10 text-white" />
+          <div className="inline-flex items-center justify-center mt-8 sm:mt-10 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-3xl mb-6 sm:mb-8 shadow-2xl shadow-orange-500/40 animate-bounce-slow">
+            <Smartphone className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-white" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent animate-gradient">
             Mobile App Development
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Create stunning, high-performance mobile applications that engage
             users and drive business growth. From native iOS and Android apps to
             cross-platform solutions, we deliver mobile experiences that matter.
@@ -264,15 +285,21 @@ const FlintSolServices = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm border border-slate-700"
+              className="group relative bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
-                <Star className="w-6 h-6 text-white" />
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/0 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-orange-500/30 group-hover:shadow-2xl group-hover:shadow-orange-500/50 transition-all duration-500 group-hover:scale-110">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400">{feature.desc}</p>
             </div>
           ))}
         </div>
@@ -380,16 +407,24 @@ const FlintSolServices = () => {
   );
 
   const WebDevelopment = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-800">
-      <div className="container mx-auto px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+      </div>
+
+      {/* Header */}
+      <div className="container mx-auto px-4 sm:px-6 py-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mt-10 w-20 h-20 bg-orange-500 rounded-2xl mb-6">
-            <Globe className="w-10 h-10 text-white" />
+          <div className="inline-flex items-center justify-center mt-8 sm:mt-10 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-3xl mb-6 sm:mb-8 shadow-2xl shadow-orange-500/40 animate-bounce-slow">
+            <Globe className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-white" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent animate-gradient">
             Web Development
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Build powerful, scalable web applications that captivate users and
             drive business success. From responsive websites to complex web
             platforms, we create digital experiences that perform.
@@ -425,15 +460,21 @@ const FlintSolServices = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm border border-slate-700"
+              className="group relative bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
-                <Star className="w-6 h-6 text-white" />
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/0 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-orange-500/30 group-hover:shadow-2xl group-hover:shadow-orange-500/50 transition-all duration-500 group-hover:scale-110">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400">{feature.desc}</p>
             </div>
           ))}
         </div>
@@ -455,16 +496,24 @@ const FlintSolServices = () => {
   );
 
   const ResourceAugmentation = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-800">
-      <div className="container mx-auto px-6 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+      </div>
+
+      {/* Header */}
+      <div className="container mx-auto px-4 sm:px-6 py-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mt-10 w-20 h-20 bg-orange-500 rounded-2xl mb-6">
-            <Users className="w-10 h-10 text-white" />
+          <div className="inline-flex items-center justify-center mt-8 sm:mt-10 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-3xl mb-6 sm:mb-8 shadow-2xl shadow-orange-500/40 animate-bounce-slow">
+            <Users className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-white" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent animate-gradient">
             Resource Augmentation
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Scale your team with top-tier professionals who integrate seamlessly
             with your existing workforce. Access specialized skills and
             expertise to accelerate your projects and achieve ambitious goals.
@@ -500,15 +549,21 @@ const FlintSolServices = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm border border-slate-700"
+              className="group relative bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
-                <Star className="w-6 h-6 text-white" />
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/0 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-orange-500/30 group-hover:shadow-2xl group-hover:shadow-orange-500/50 transition-all duration-500 group-hover:scale-110">
+                  <Star className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400">{feature.desc}</p>
             </div>
           ))}
         </div>
@@ -527,16 +582,24 @@ const FlintSolServices = () => {
     </div>
   );
  const BlockchainDevelopment = () => (
-    <div className={`min-h-screen ${heroBackgrounds.blockchain}`}>
-      <div className="container mx-auto px-6 py-8">
+    <div className={`min-h-screen ${heroBackgrounds.blockchain} relative overflow-hidden`}>
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
+      </div>
+
+      {/* Header */}
+      <div className="container mx-auto px-4 sm:px-6 py-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center mt-10 w-20 h-20 bg-orange-500 rounded-2xl mb-6 shadow-lg shadow-orange-500/25">
-            <Shield className="w-10 h-10 text-white" />
+          <div className="inline-flex items-center justify-center mt-8 sm:mt-10 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-3xl mb-6 sm:mb-8 shadow-2xl shadow-orange-500/40 animate-bounce-slow">
+            <Shield className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 text-white" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent animate-gradient">
             Blockchain Development
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Build the future with secure, decentralized blockchain solutions. From smart contracts to DeFi platforms, 
             we create innovative blockchain applications that revolutionize industries and enable trustless transactions.
           </p>
@@ -572,15 +635,21 @@ const FlintSolServices = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 rounded-xl p-6 backdrop-blur-sm border border-slate-700 hover:border-amber-500/50 transition-all duration-300 hover:transform hover:scale-105"
+              className="group relative bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/30 overflow-hidden"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-amber-500 rounded-lg flex items-center justify-center mb-4">
-                <Coins className="w-6 h-6 text-white" />
+              {/* Card Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/10 group-hover:via-orange-500/5 group-hover:to-orange-500/0 transition-all duration-500"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 via-orange-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-xl shadow-orange-500/30 group-hover:shadow-2xl group-hover:shadow-orange-500/50 transition-all duration-500 group-hover:scale-110">
+                  <Coins className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-semibold text-white mb-3 group-hover:text-orange-200 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-400">{feature.desc}</p>
             </div>
           ))}
         </div>
@@ -614,7 +683,7 @@ const FlintSolServices = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 pt-20">
+    <div className="min-h-screen bg-black pt-20">
       {/* Page Content */}
       {renderCurrentPage()}
     </div>

@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from 'react';
+import { Bot, Laptop, Link2, Smartphone, Zap, Users } from 'lucide-react';
 
 const DataContext = createContext();
 
@@ -7,12 +8,12 @@ export const data = {
   services: [
     {
       id: "ai",
-      icon: "🤖",
+      icon: Bot,
       title: "AI & Automation",
       description: "Transform your business with our AI-driven solutions, from intelligent chatbots to automated workflows that streamline operations.",
       features: [
         "LegalEaseAI – LegalTech automation",
-        "AI Voice Agent – Voice-driven calendar booking", 
+        "AI Voice Agent – Voice-driven calendar booking",
         "PocketMate – AI mental health chatbot",
         "TexMed – AI-powered medical billing",
         "Social Media Automation – AI-driven content scheduler"
@@ -22,7 +23,7 @@ export const data = {
     },
     {
       id: "web",
-      icon: "💻",
+      icon: Laptop,
       title: "Web Development",
       description: "Full-stack web development solutions using cutting-edge technologies to create scalable, responsive applications.",
       features: [
@@ -37,7 +38,7 @@ export const data = {
     },
     {
       id: "blockchain",
-      icon: "⛓️",
+      icon: Link2,
       title: "Blockchain Development",
       description: "Innovative blockchain solutions for secure, transparent, and efficient transactions.",
       features: [
@@ -52,7 +53,7 @@ export const data = {
     },
     {
       id: "mobile",
-      icon: "📱",
+      icon: Smartphone,
       title: "Mobile App Development",
       description: "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
       features: [
@@ -67,7 +68,7 @@ export const data = {
     },
     {
       id: "mvp",
-      icon: "⚡",
+      icon: Zap,
       title: "MVP Development",
       description: "Rapidly validate your ideas with our MVP development service. Get to market faster with lean, scalable solutions.",
       features: [
@@ -82,7 +83,7 @@ export const data = {
     },
     {
       id: "resource",
-      icon: "👨‍💻",
+      icon: Users,
       title: "Resource Augmentation",
       description: "Scale your team instantly with our skilled tech professionals to accelerate project delivery and boost productivity.",
       features: [

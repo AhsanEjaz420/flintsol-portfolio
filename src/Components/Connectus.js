@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Phone, Globe, MapPin, CheckCircle, AlertTriangle, Send, Shield, Clock, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Connectus = () => {
   const [formData, setFormData] = useState({
@@ -60,7 +62,7 @@ const Connectus = () => {
     <>
       <section className="contact" id="contact" style={{
         padding: '4rem 0',
-        background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)',
+        background: '#F2F4F7',
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
@@ -112,20 +114,16 @@ const Connectus = () => {
           position: 'relative',
           zIndex: 10
         }}>
-          <h2 className="animate-on-scroll" style={{
+          <h2 className="animate-on-scroll font-extrabold tracking-tight mb-4" style={{
             textAlign: 'center',
-            fontSize: 'clamp(3.5rem, 7vw, 4.5rem)',
-            fontWeight: '800',
-            background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 50%, #ff6b35 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            backgroundSize: '200% 200%',
-            animation: 'gradient 8s ease infinite',
-            marginBottom: '2rem',
-            marginTop: '4rem',
-            fontFamily: 'var(--font-sans)'
-          }}>Get In Touch</h2>
+            fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+            color: '#000000',
+            fontFamily: 'var(--font-sans)',
+            marginTop: '4rem'
+          }}>
+            Get <span style={{ color: '#FF6B35' }}>In Touch</span>
+          </h2>
+          <div className="w-16 h-1 bg-orange-500 mx-auto mb-8 rounded-full"></div>
           
           <div className="contact-content" style={{
             display: 'grid',
@@ -134,28 +132,38 @@ const Connectus = () => {
             alignItems: 'start'
           }}>
             {/* Contact Info */}
-            <div className="contact-info animate-left glass-card-light hover-lift" style={{
-              padding: '2rem',
-              borderRadius: '20px',
-              fontFamily: 'var(--font-sans)'
-            }}>
-              <h3 style={{ 
-                color: "#121D1A", 
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="contact-info glass-card-light hover-lift"
+              style={{
+                padding: '2rem',
+                borderRadius: '20px',
+                fontFamily: 'var(--font-sans)'
+              }}
+            >
+              <h3 style={{
+                color: "#121D1A",
                 marginBottom: "2rem",
                 fontSize: '1.8rem',
                 fontWeight: 'bold'
               }}>Our Contact</h3>
               
-              <div className="contact-item" style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '1.5rem',
-                padding: '1rem',
-                borderRadius: '15px',
-                background: 'white',
-                boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
-                transition: 'all 0.3s ease'
-              }}>
+              <motion.div 
+                className="contact-item"
+                whileHover={{ scale: 1.02 }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '1.5rem',
+                  padding: '1rem',
+                  borderRadius: '15px',
+                  background: 'white',
+                  boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease'
+                }}
+              >
                 <div style={{
                   width: '50px',
                   height: '50px',
@@ -167,27 +175,28 @@ const Connectus = () => {
                   marginRight: '1rem',
                   flexShrink: 0
                 }}>
-                  <i className="fas fa-phone" style={{
-                    fontSize: '1.2rem',
-                    color: 'white'
-                  }}></i>
+                  <Phone style={{ width: '1.2rem', height: '1.2rem', color: 'white' }} />
                 </div>
                 <div>
                   <strong style={{ color: '#121D1A' }}>Phone</strong><br />
                   <span style={{ color: '#666666' }}>+92 331 5411654</span>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="contact-item" style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '1.5rem',
-                padding: '1rem',
-                borderRadius: '15px',
-                background: 'white',
-                boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
-                transition: 'all 0.3s ease'
-              }}>
+              <motion.div 
+                className="contact-item"
+                whileHover={{ scale: 1.02 }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '1.5rem',
+                  padding: '1rem',
+                  borderRadius: '15px',
+                  background: 'white',
+                  boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease'
+                }}
+              >
                 <div style={{
                   width: '50px',
                   height: '50px',
@@ -199,27 +208,28 @@ const Connectus = () => {
                   marginRight: '1rem',
                   flexShrink: 0
                 }}>
-                  <i className="fas fa-globe" style={{
-                    fontSize: '1.2rem',
-                    color: 'white'
-                  }}></i>
+                  <Globe style={{ width: '1.2rem', height: '1.2rem', color: 'white' }} />
                 </div>
                 <div>
                   <strong style={{ color: '#121D1A' }}>Website</strong><br />
                   <span style={{ color: '#666666' }}>www.flint-sol.com</span>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="contact-item" style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '2rem',
-                padding: '1rem',
-                borderRadius: '15px',
-                background: 'white',
-                boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
-                transition: 'all 0.3s ease'
-              }}>
+              <motion.div 
+                className="contact-item"
+                whileHover={{ scale: 1.02 }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: '2rem',
+                  padding: '1rem',
+                  borderRadius: '15px',
+                  background: 'white',
+                  boxShadow: '0 5px 15px rgba(0,0,0,0.08)',
+                  transition: 'all 0.3s ease'
+                }}
+              >
                 <div style={{
                   width: '50px',
                   height: '50px',
@@ -231,14 +241,44 @@ const Connectus = () => {
                   marginRight: '1rem',
                   flexShrink: 0
                 }}>
-                  <i className="fas fa-map-marker-alt" style={{
-                    fontSize: '1.2rem',
-                    color: 'white'
-                  }}></i>
+                  <MapPin style={{ width: '1.2rem', height: '1.2rem', color: 'white' }} />
                 </div>
                 <div>
                   <strong style={{ color: '#121D1A' }}>Address</strong><br />
                   <span style={{ color: '#666666' }}>H 14, St 49, G-13/2, Islamabad</span>
+                </div>
+              </motion.div>
+
+              {/* Trust Signals */}
+              <div style={{ marginBottom: '2rem' }}>
+                <h4 style={{
+                  color: '#121D1A',
+                  marginBottom: '1rem',
+                  fontSize: '1.1rem',
+                  fontWeight: 'bold'
+                }}>Why Choose Us</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  <motion.div 
+                    whileHover={{ x: 5 }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+                  >
+                    <Shield style={{ width: '1.2rem', height: '1.2rem', color: '#ff6b35' }} />
+                    <span style={{ color: '#666666', fontSize: '0.9rem' }}>Secure & Reliable</span>
+                  </motion.div>
+                  <motion.div 
+                    whileHover={{ x: 5 }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+                  >
+                    <Clock style={{ width: '1.2rem', height: '1.2rem', color: '#ff6b35' }} />
+                    <span style={{ color: '#666666', fontSize: '0.9rem' }}>24/7 Support</span>
+                  </motion.div>
+                  <motion.div 
+                    whileHover={{ x: 5 }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+                  >
+                    <Users style={{ width: '1.2rem', height: '1.2rem', color: '#ff6b35' }} />
+                    <span style={{ color: '#666666', fontSize: '0.9rem' }}>Expert Team</span>
+                  </motion.div>
                 </div>
               </div>
 
@@ -265,14 +305,20 @@ const Connectus = () => {
                   We don't just build tech - we deliver strategic innovation, seamless execution, and dependable partnerships that drive real business impact.
                 </p>
               </div>
-            </div>
+            </motion.div>
             
             {/* Contact Form */}
-            <div className="contact-form animate-right glass-card-light hover-lift" style={{
-              padding: '2rem',
-              borderRadius: '20px',
-              fontFamily: 'var(--font-sans)'
-            }}>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="contact-form glass-card-light hover-lift"
+              style={{
+                padding: '2rem',
+                borderRadius: '20px',
+                fontFamily: 'var(--font-sans)'
+              }}
+            >
                              <h3 style={{
                  color: '#121D1A',
                  marginBottom: '2rem',
@@ -303,7 +349,9 @@ const Connectus = () => {
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
                         outline: 'none',
-                        fontFamily: 'var(--font-sans)'
+                        fontFamily: 'var(--font-sans)',
+                        background: 'white',
+                        color: '#121D1A'
                       }}
                       onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
@@ -325,7 +373,9 @@ const Connectus = () => {
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
                         outline: 'none',
-                        fontFamily: 'var(--font-sans)'
+                        fontFamily: 'var(--font-sans)',
+                        background: 'white',
+                        color: '#121D1A'
                       }}
                       onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
@@ -354,7 +404,9 @@ const Connectus = () => {
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
                         outline: 'none',
-                        fontFamily: 'var(--font-sans)'
+                        fontFamily: 'var(--font-sans)',
+                        background: 'white',
+                        color: '#121D1A'
                       }}
                       onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
@@ -376,7 +428,9 @@ const Connectus = () => {
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
                         outline: 'none',
-                        fontFamily: 'var(--font-sans)'
+                        fontFamily: 'var(--font-sans)',
+                        background: 'white',
+                        color: '#121D1A'
                       }}
                       onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                       onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
@@ -401,7 +455,10 @@ const Connectus = () => {
                       transition: 'all 0.3s ease',
                       outline: 'none',
                       resize: 'vertical',
-                      fontFamily: 'var(--font-sans)'
+                      fontFamily: 'var(--font-sans)',
+                      background: 'white',
+                      color: '#121D1A',
+                      minHeight: '150px' // Add this line
                     }}
                     onFocus={(e) => e.target.style.borderColor = '#ff6b35'}
                     onBlur={(e) => e.target.style.borderColor = '#e1e5e9'}
@@ -409,43 +466,52 @@ const Connectus = () => {
                 </div>
 
                                  {submitStatus === 'success' && (
-                   <div style={{
-                     background: '#d4edda',
-                     color: '#155724',
-                     padding: '1rem',
-                     borderRadius: '10px',
-                     marginBottom: '1rem',
-                     border: '1px solid #c3e6cb',
-                     display: 'flex',
-                     alignItems: 'center',
-                     fontFamily: 'var(--font-sans)'
-                   }}>
-                     <i className="fas fa-check-circle" style={{ marginRight: '0.5rem', fontSize: '1.2rem' }}></i>
+                   <motion.div
+                     initial={{ opacity: 0, y: -10 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.6 }}
+                     style={{
+                       background: '#d4edda',
+                       color: '#155724',
+                       padding: '1rem',
+                       borderRadius: '10px',
+                       marginBottom: '1rem',
+                       border: '1px solid #c3e6cb',
+                       display: 'flex',
+                       alignItems: 'center',
+                       fontFamily: 'var(--font-sans)'
+                     }}
+                   >
+                     <CheckCircle style={{ marginRight: '0.5rem', fontSize: '1.2rem', width: '1.2rem', height: '1.2rem' }} />
                      <div>
                        <strong>Email Sent Successfully!</strong><br />
                        Your email client should open now. If it doesn't open automatically, please check your default email application.
                      </div>
-                   </div>
+                   </motion.div>
                  )}
 
                  {submitStatus === 'error' && (
-                   <div style={{
-                     background: '#f8d7da',
-                     color: '#721c24',
-                     padding: '1rem',
-                     borderRadius: '10px',
-                     marginBottom: '1rem',
-                     border: '1px solid #f5c6cb',
-                     display: 'flex',
-                     alignItems: 'center',
-                     fontFamily: 'var(--font-sans)'
-                   }}>
-                     <i className="fas fa-exclamation-triangle" style={{ marginRight: '0.5rem', fontSize: '1.2rem' }}></i>
+                   <motion.div
+                     initial={{ opacity: 0, y: -10 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     style={{
+                       background: '#f8d7da',
+                       color: '#721c24',
+                       padding: '1rem',
+                       borderRadius: '10px',
+                       marginBottom: '1rem',
+                       border: '1px solid #f5c6cb',
+                       display: 'flex',
+                       alignItems: 'center',
+                       fontFamily: 'var(--font-sans)'
+                     }}
+                   >
+                     <AlertTriangle style={{ marginRight: '0.5rem', fontSize: '1.2rem', width: '1.2rem', height: '1.2rem' }} />
                      <div>
                        <strong>Error Sending Email</strong><br />
                        Unable to open email client. Please try again or contact us directly at contact@flint-sol.com
                      </div>
-                   </div>
+                   </motion.div>
                  )}
 
                 <button
@@ -498,13 +564,13 @@ const Connectus = () => {
                     </>
                   ) : (
                     <>
-                      <i className="fas fa-paper-plane"></i>
+                      <Send style={{ width: '1.2rem', height: '1.2rem' }} />
                       Send Message
                     </>
-                                     )}
+                  )}
                  </button>
                </form>
-             </div>
+             </motion.div>
           </div>
         </div>
 

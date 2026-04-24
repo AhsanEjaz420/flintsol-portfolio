@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Building2, CreditCard, ShoppingBag, BookOpen, Building, Scale, Cloud, Truck, Gamepad2, Globe, Sprout, Plane, Film, Factory, HandHeart } from 'lucide-react';
 
 const Industries = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -9,21 +10,21 @@ const Industries = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
   const industries = [
-    { name: 'HealthTech', icon: '🏥', description: 'Digital health solutions & medical platforms' },
-    { name: 'FinTech', icon: '💳', description: 'Financial apps & payment systems' },
-    { name: 'E-Commerce', icon: '🛒', description: 'Online stores & marketplace solutions' },
-    { name: 'EdTech', icon: '📚', description: 'Educational platforms & learning management' },
-    { name: 'Real Estate', icon: '🏢', description: 'Property management & listing platforms' },
-    { name: 'LegalTech', icon: '⚖️', description: 'Legal management & compliance tools' },
-    { name: 'SaaS Platforms', icon: '☁️', description: 'Cloud-based software solutions' },
-    { name: 'Logistics', icon: '🚚', description: 'Supply chain & delivery management' },
-    { name: 'Gaming', icon: '🎮', description: 'Mobile games & interactive entertainment' },
-    { name: 'IoT Solutions', icon: '🌐', description: 'Connected devices & smart systems' },
-    { name: 'AgriTech', icon: '🌱', description: 'Agricultural technology & farming solutions' },
-    { name: 'Travel & Tourism', icon: '✈️', description: 'Booking platforms & travel management' },
-    { name: 'Media & Entertainment', icon: '🎬', description: 'Streaming platforms & content management' },
-    { name: 'Manufacturing', icon: '🏭', description: 'Industrial automation & process optimization' },
-    { name: 'Non-Profit', icon: '🤝', description: 'Community platforms & donation management' }
+    { name: 'HealthTech', icon: Building2, description: 'Digital health solutions & medical platforms' },
+    { name: 'FinTech', icon: CreditCard, description: 'Financial apps & payment systems' },
+    { name: 'E-Commerce', icon: ShoppingBag, description: 'Online stores & marketplace solutions' },
+    { name: 'EdTech', icon: BookOpen, description: 'Educational platforms & learning management' },
+    { name: 'Real Estate', icon: Building, description: 'Property management & listing platforms' },
+    { name: 'LegalTech', icon: Scale, description: 'Legal management & compliance tools' },
+    { name: 'SaaS Platforms', icon: Cloud, description: 'Cloud-based software solutions' },
+    { name: 'Logistics', icon: Truck, description: 'Supply chain & delivery management' },
+    { name: 'Gaming', icon: Gamepad2, description: 'Mobile games & interactive entertainment' },
+    { name: 'IoT Solutions', icon: Globe, description: 'Connected devices & smart systems' },
+    { name: 'AgriTech', icon: Sprout, description: 'Agricultural technology & farming solutions' },
+    { name: 'Travel & Tourism', icon: Plane, description: 'Booking platforms & travel management' },
+    { name: 'Media & Entertainment', icon: Film, description: 'Streaming platforms & content management' },
+    { name: 'Manufacturing', icon: Factory, description: 'Industrial automation & process optimization' },
+    { name: 'Non-Profit', icon: HandHeart, description: 'Community platforms & donation management' }
   ];
 
   // Generate gradient colors for each card based on index
@@ -70,50 +71,55 @@ const Industries = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)' }}>
+    <section className="min-h-screen relative overflow-hidden" style={{ background: 'var(--color-bg-dark-elegant)' }}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-200/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-40 right-20 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-purple-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }}></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-20" style={{ marginTop: '100px' }}>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 py-20" style={{ marginTop: '100px' }}>
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-orange-50 backdrop-blur-sm rounded-full px-6 py-2 mb-6 border border-orange-200 shadow-lg shadow-orange-100/50">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100/10 to-orange-50/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6 border border-orange-200/20 shadow-lg shadow-orange-100/20">
             <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-            <span className="text-orange-600 text-sm font-semibold" style={{ fontFamily: 'var(--font-sans)' }}>Our Expertise</span>
+            <span className="text-orange-500 text-xs sm:text-sm font-semibold" style={{ fontFamily: 'var(--font-sans)' }}>Our Expertise</span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold mb-6" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>
-            Industries We
-            <span className="block bg-gradient-to-r from-orange-500 via-orange-600 to-orange-400 bg-clip-text text-transparent">
-              Transform
-            </span>
+          <h2 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight"
+            style={{
+              fontFamily: 'var(--font-sans)',
+              background: 'linear-gradient(135deg, #ff6b35 0%, #ff8f65 50%, #ff6b35 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              backgroundSize: '200% 200%',
+              animation: 'gradient 8s ease infinite'
+            }}
+          >
+            Industries We Transform
           </h2>
           
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-sans)', color: '#666666' }}>
+          <p className="text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text-secondary-dark)' }}>
             Empowering diverse industries with cutting-edge digital solutions, innovative software development,
             and transformative technology experiences that drive growth and success.
           </p>
 
           {/* Decorative Line */}
-          <div className="flex justify-center mt-8">
-            <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent rounded-full shadow-lg shadow-orange-200/50"></div>
+          <div className="flex justify-center mt-6 sm:mt-8">
+            <div className="w-24 sm:w-32 h-1.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent rounded-full shadow-lg shadow-orange-500/20"></div>
           </div>
         </div>
 
         {/* Industries Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className={`group relative p-6 cursor-pointer rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden ${
-                hoveredIndex === index 
-                  ? `bg-gradient-to-br ${getHoverGradient(index)} border-white/30 shadow-xl` 
-                  : 'bg-white/70 border-white/50 hover:border-orange-200'
-              }`}
+              className="group relative p-4 sm:p-6 lg:p-8 cursor-pointer rounded-3xl border backdrop-blur-2xl transition-all duration-500 hover:scale-105 hover:shadow-2xl overflow-hidden elegant-card"
+              style={{ transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -125,30 +131,30 @@ const Industries = () => {
 
               {/* Card Content */}
               <div className="relative z-10 text-center">
-                <div className={`text-4xl mb-4 transform transition-all duration-500 ${
+                <div className={`mb-4 sm:mb-6 flex justify-center transform transition-all duration-500 ${
                   hoveredIndex === index ? 'scale-125 rotate-6' : 'scale-100'
                 }`}>
-                  {industry.icon}
+                  <industry.icon className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14" style={{ color: '#ff6b35' }} />
                 </div>
 
-                <h3 className={`font-bold text-lg mb-2 transition-all duration-300 ${
+                <h3 className={`font-bold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3 transition-all duration-300 ${
                   hoveredIndex === index 
                     ? 'text-white scale-105' 
-                    : 'text-gray-800'
+                    : 'text-white'
                 }`} style={{ fontFamily: 'var(--font-sans)' }}>
                   {industry.name}
                 </h3>
 
-                <p className={`text-sm leading-relaxed transition-all duration-500 ${
+                <p className={`text-xs sm:text-sm leading-relaxed transition-all duration-500 ${
                   hoveredIndex === index 
                     ? 'text-white/90 opacity-100 translate-y-0' 
-                    : 'text-gray-600 opacity-100 translate-y-0'
+                    : 'text-gray-400 opacity-100 translate-y-0'
                 }`} style={{ fontFamily: 'var(--font-sans)' }}>
                   {industry.description}
                 </p>
 
                 {/* Hover Indicator */}
-                <div className={`mt-4 w-8 h-1 rounded-full mx-auto transition-all duration-500 ${
+                <div className={`mt-4 h-1 rounded-full mx-auto transition-all duration-500 ${
                   hoveredIndex === index 
                     ? 'bg-white w-16' 
                     : 'bg-gradient-to-r from-orange-300 to-orange-500 w-8'
@@ -160,19 +166,19 @@ const Industries = () => {
 
         {/* Bottom CTA Section */}
         <div className="text-center mt-20 mb-16">
-          <div className="relative p-8 max-w-4xl mx-auto rounded-3xl border border-white/50 backdrop-blur-xl overflow-hidden group hover:shadow-2xl transition-all duration-500" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)' }}>
+          <div className="relative p-8 max-w-4xl mx-auto rounded-3xl border border-gray-700/50 backdrop-blur-2xl overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 elegant-card">
             {/* Animated Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-100/50 via-blue-100/50 to-purple-100/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-100/10 via-blue-100/10 to-purple-100/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             
             <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-sans)', color: '#121D1A' }}>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text-primary-dark)' }}>
                 Don't See Your Industry?
               </h3>
-              <p className="mb-6 text-lg" style={{ fontFamily: 'var(--font-sans)', color: '#666666' }}>
+              <p className="mb-6 text-lg" style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-text-secondary-dark)' }}>
                 We adapt our expertise to serve businesses across all sectors. Let's discuss your unique requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg shadow-orange-200 hover:shadow-orange-300 transition-all duration-300 hover:scale-105"
+                <button className="relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
                 onClick={() => navigate('/Portfolio')} style={{ fontFamily: 'var(--font-sans)' }}>
                   <span className="relative z-10">View Portfolio</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-700 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
@@ -182,6 +188,14 @@ const Industries = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
     </section>
   );
 };

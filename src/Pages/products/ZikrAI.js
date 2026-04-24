@@ -93,12 +93,34 @@ const ZikrAI = () => {
 
   return (
     <div className="min-h-screen text-gray-900 selection:bg-yellow-500/30 font-sans" style={{ backgroundColor: theme.background }}>
-      {/* Premium Mesh Background */}
+      {/* Premium Mesh Background - Enhanced Multi-Layer Gradients */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0" style={{ 
-          background: `radial-gradient(circle at 80% 20%, rgba(234, 179, 8, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(30, 58, 52, 0.08) 0%, transparent 50%)` 
+        {/* Primary gold radial gradient - top right */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse 80% 60% at 85% 15%, rgba(234, 179, 8, 0.35) 0%, rgba(234, 179, 8, 0.15) 30%, transparent 60%)`
         }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[120px] opacity-15" style={{ background: theme.action }}></div>
+        {/* Secondary green radial gradient - bottom left */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse 70% 50% at 15% 85%, rgba(30, 58, 52, 0.25) 0%, rgba(30, 58, 52, 0.1) 40%, transparent 70%)`
+        }}></div>
+        {/* Tertiary gold accent - middle left */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(circle at 25% 45%, rgba(234, 179, 8, 0.2) 0%, transparent 45%)`
+        }}></div>
+        {/* Green accent - top left */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(circle at 10% 20%, rgba(30, 58, 52, 0.18) 0%, transparent 40%)`
+        }}></div>
+        {/* Gold accent - bottom right */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse 60% 40% at 90% 80%, rgba(234, 179, 8, 0.22) 0%, transparent 50%)`
+        }}></div>
+        {/* Large central blur orb - gold */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] opacity-25" style={{ background: theme.action }}></div>
+        {/* Secondary blur orb - green */}
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[130px] opacity-20" style={{ background: theme.primary }}></div>
+        {/* Small accent blur - gold */}
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] rounded-full blur-[100px] opacity-15" style={{ background: theme.action }}></div>
       </div>
 
       {/* Premium Navigation */}
@@ -135,7 +157,11 @@ const ZikrAI = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-44 pb-32 overflow-hidden z-10 px-6">
+      <section className="relative pt-44 pb-32 overflow-hidden z-10 px-6"
+        style={{
+          background: `linear-gradient(180deg, ${theme.background} 0%, rgba(234, 179, 8, 0.08) 30%, ${theme.background} 70%, rgba(30, 58, 52, 0.06) 100%)`
+        }}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             {/* Left Content */}
@@ -261,7 +287,11 @@ const ZikrAI = () => {
       </section>
 
       {/* Stats Section (Premium Bento Grid Feel) */}
-      <section className="py-20 px-6 z-10 relative">
+      <section className="py-20 px-6 z-10 relative"
+        style={{
+          background: `linear-gradient(180deg, ${theme.background} 0%, rgba(234, 179, 8, 0.06) 50%, ${theme.background} 100%)`
+        }}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] mb-12 opacity-30" style={{ color: theme.muted }}>Our Global Reach</p>
@@ -294,7 +324,11 @@ const ZikrAI = () => {
       </section>
 
       {/* Feature Showcase Section (Split) */}
-      <section className="py-40 px-6 relative overflow-hidden" style={{ backgroundColor: theme.card }}>
+      <section className="py-40 px-6 relative overflow-hidden"
+        style={{
+          background: `linear-gradient(180deg, ${theme.card} 0%, rgba(234, 179, 8, 0.08) 30%, rgba(30, 58, 52, 0.06) 70%, ${theme.card} 100%)`
+        }}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="space-y-40">
             {/* Feature 1: AI Spiritual Guidance */}
@@ -381,7 +415,11 @@ const ZikrAI = () => {
       </section>
 
       {/* Feature Grid (The Complete Experience) */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-24 px-6 relative z-10"
+        style={{
+          background: `linear-gradient(180deg, ${theme.background} 0%, rgba(30, 58, 52, 0.05) 25%, rgba(234, 179, 8, 0.04) 75%, ${theme.background} 100%)`
+        }}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24 space-y-4">
             <h2 className="text-5xl md:text-6xl font-black tracking-tighter" style={{ color: theme.primary }}>Everything You Need</h2>
@@ -410,7 +448,11 @@ const ZikrAI = () => {
       </section>
 
       {/* App Gallery Grid (Premium Visuals) */}
-      <section className="py-40 px-6 relative overflow-hidden" style={{ backgroundColor: theme.background }}>
+      <section className="py-40 px-6 relative overflow-hidden"
+        style={{
+          background: `linear-gradient(180deg, ${theme.background} 0%, rgba(234, 179, 8, 0.1) 20%, rgba(30, 58, 52, 0.08) 50%, rgba(234, 179, 8, 0.06) 80%, ${theme.background} 100%)`
+        }}
+      >
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="space-y-4">
@@ -469,7 +511,12 @@ const ZikrAI = () => {
       </section>
 
       {/* Tech Stack (Grid with Dividers) */}
-      <section className="py-32 px-6 border-t" style={{ borderColor: theme.border }}>
+      <section className="py-32 px-6 border-t"
+        style={{
+          borderColor: theme.border,
+          background: `linear-gradient(180deg, ${theme.background} 0%, rgba(30, 58, 52, 0.08) 50%, ${theme.background} 100%)`
+        }}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-1 space-y-4">
@@ -521,7 +568,11 @@ const ZikrAI = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-60 px-6 relative overflow-hidden" style={{ backgroundColor: theme.background }}>
+      <section className="py-60 px-6 relative overflow-hidden"
+        style={{
+          background: `linear-gradient(180deg, ${theme.background} 0%, rgba(234, 179, 8, 0.15) 30%, rgba(30, 58, 52, 0.1) 70%, ${theme.background} 100%)`
+        }}
+      >
         <div className="absolute inset-0 flex items-center justify-center opacity-10">
            <div className="w-[800px] h-[800px] rounded-full blur-[120px]" style={{ background: theme.action }}></div>
         </div>

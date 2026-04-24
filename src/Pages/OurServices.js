@@ -197,7 +197,7 @@ const OurServices = () => {
                   gap: '15px',
                   flexWrap: 'wrap'
                 }}>
-                  <span>{service.icon}</span>
+                  <service.icon style={{ width: 'clamp(2.5rem, 5vw, 3.5rem)', height: 'clamp(2.5rem, 5vw, 3.5rem)' }} />
                   <div style={{
                     width: 'clamp(40px, 8vw, 60px)',
                     height: '4px',

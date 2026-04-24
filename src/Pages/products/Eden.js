@@ -109,10 +109,35 @@ const Eden = () => {
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#121D1A] font-sans relative overflow-x-hidden selection:bg-[#C5A059]/20">
-      {/* Background Graphic Layer */}
-      <div className="fixed top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none z-0">
-        <div className="absolute -top-24 -right-24 w-[600px] h-[600px] border border-[#C5A059]/30 rounded-full"></div>
-        <div className="absolute top-48 -right-12 w-[400px] h-[400px] border border-[#C5A059]/15 rounded-full"></div>
+      {/* Enhanced Multi-Layer Gold Gradient Background */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        {/* Primary gold radial - top right */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse 70% 50% at 80% 10%, rgba(197, 160, 89, 0.25) 0%, rgba(248, 162, 1, 0.12) 35%, transparent 65%)`
+        }}></div>
+        {/* Secondary gold radial - bottom left */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse 60% 45% at 15% 90%, rgba(197, 160, 89, 0.2) 0%, rgba(248, 162, 1, 0.08) 40%, transparent 70%)`
+        }}></div>
+        {/* Tertiary accent - middle */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.12) 0%, transparent 50%)`
+        }}></div>
+        {/* Warm cream accent - top left */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(ellipse 50% 40% at 20% 20%, rgba(251, 191, 36, 0.15) 0%, transparent 55%)`
+        }}></div>
+        {/* Gold accent - bottom right */}
+        <div className="absolute inset-0" style={{
+          background: `radial-gradient(circle at 85% 85%, rgba(197, 160, 89, 0.18) 0%, transparent 45%)`
+        }}></div>
+        {/* Large central blur orb */}
+        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] rounded-full blur-[140px] opacity-20" style={{ background: '#C5A059' }}></div>
+        {/* Secondary blur orb */}
+        <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] rounded-full blur-[120px] opacity-15" style={{ background: '#f8a201' }}></div>
+        {/* Decorative rings */}
+        <div className="absolute -top-24 -right-24 w-[600px] h-[600px] border border-[#C5A059]/20 rounded-full"></div>
+        <div className="absolute top-48 -right-12 w-[400px] h-[400px] border border-[#C5A059]/10 rounded-full"></div>
       </div>
 
       {/* Navigation */}
@@ -171,7 +196,11 @@ const Eden = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section ref={heroRef} className="relative pt-32 lg:pt-48 pb-20 lg:pb-32 px-6 lg:px-12 bg-gradient-to-b from-[#FFFFFF] via-[#F8FAFC] to-[#FFFFFF]">
+        <section ref={heroRef} className="relative pt-32 lg:pt-48 pb-20 lg:pb-32 px-6 lg:px-12"
+          style={{
+            background: `linear-gradient(180deg, #FFFFFF 0%, rgba(197, 160, 89, 0.08) 20%, rgba(248, 162, 1, 0.05) 40%, rgba(197, 160, 89, 0.06) 70%, #FFFFFF 100%)`
+          }}
+        >
           <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -225,7 +254,11 @@ const Eden = () => {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="py-20 lg:py-32 px-6 lg:px-12 border-t border-[#C5A059]/10 bg-[#F8FAFC]">
+        <section id="features" className="py-20 lg:py-32 px-6 lg:px-12 border-t border-[#C5A059]/10"
+          style={{
+            background: `linear-gradient(180deg, #F8FAFC 0%, rgba(197, 160, 89, 0.08) 30%, rgba(248, 162, 1, 0.04) 60%, #F8FAFC 100%)`
+          }}
+        >
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 lg:mb-24">
               <div>
@@ -265,7 +298,11 @@ const Eden = () => {
         </section>
 
         {/* AI Models Section */}
-        <section id="models" className="py-20 lg:py-32 px-6 lg:px-12 bg-[#FFFFFF] border-t border-[#C5A059]/10">
+        <section id="models" className="py-20 lg:py-32 px-6 lg:px-12 border-t border-[#C5A059]/10"
+          style={{
+            background: `linear-gradient(180deg, #FFFFFF 0%, rgba(197, 160, 89, 0.06) 25%, rgba(251, 191, 36, 0.04) 75%, #FFFFFF 100%)`
+          }}
+        >
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-6 lg:gap-12 mb-12 lg:mb-24">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter whitespace-nowrap text-[#121D1A]">Integrated Models</h2>
@@ -295,7 +332,11 @@ const Eden = () => {
         </section>
 
         {/* Tech Stack Details */}
-        <section id="technology" className="py-20 lg:py-40 px-6 lg:px-12 bg-[#F8FAFC]">
+        <section id="technology" className="py-20 lg:py-40 px-6 lg:px-12"
+          style={{
+            background: `linear-gradient(180deg, #F8FAFC 0%, rgba(197, 160, 89, 0.07) 40%, rgba(248, 162, 1, 0.05) 70%, #F8FAFC 100%)`
+          }}
+        >
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
             <div>
               <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] block mb-6">03 / Implementation</span>
@@ -346,7 +387,11 @@ const Eden = () => {
         </section>
 
         {/* Image Gallery Placeholder Section */}
-        <section className="py-20 lg:py-32 px-6 lg:px-12 bg-[#FFFFFF] border-t border-[#C5A059]/10">
+        <section className="py-20 lg:py-32 px-6 lg:px-12 border-t border-[#C5A059]/10"
+          style={{
+            background: `linear-gradient(180deg, #FFFFFF 0%, rgba(197, 160, 89, 0.1) 20%, rgba(251, 191, 36, 0.06) 50%, rgba(197, 160, 89, 0.08) 80%, #FFFFFF 100%)`
+          }}
+        >
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 lg:mb-20 gap-6">
               <div>
@@ -416,7 +461,11 @@ const Eden = () => {
         </section>
 
         {/* High-Impact CTA */}
-        <section className="pb-20 lg:pb-40 px-6 lg:px-12">
+        <section className="pb-20 lg:pb-40 px-6 lg:px-12"
+          style={{
+            background: `linear-gradient(180deg, #FFFFFF 0%, rgba(197, 160, 89, 0.12) 30%, rgba(248, 162, 1, 0.08) 70%, rgba(197, 160, 89, 0.1) 100%)`
+          }}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

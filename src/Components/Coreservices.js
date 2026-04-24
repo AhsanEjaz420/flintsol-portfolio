@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useData } from "../contexts/DataContext";
 import { useScrollAnimation } from "../utils/useScrollAnimation";
+import { motion } from "framer-motion";
 
 const Coreservices = () => {
   useEffect(() => {
@@ -18,8 +19,8 @@ const Coreservices = () => {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 50%, #F9F9F7 100%)',
-      color: '#121D1A',
+      background: 'var(--color-bg-dark-elegant)',
+      color: 'var(--color-text-primary-dark)',
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -139,7 +140,7 @@ const Coreservices = () => {
           `}</style>
           <p style={{
             fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-            color: '#666666',
+            color: 'var(--color-text-secondary-dark)',
             maxWidth: '800px',
             margin: '0 auto',
             lineHeight: '1.6',
@@ -166,18 +167,22 @@ const Coreservices = () => {
             marginBottom: 'clamp(30px, 6vw, 60px)'
           }}>
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={service.id}
-                className="hover-lift glass-card-light"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isSectionVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="hover-lift elegant-card"
                 style={{
                   padding: 'clamp(20px, 5vw, 40px)',
                   cursor: 'pointer',
                   minHeight: '500px',
                   display: 'flex',
                   flexDirection: 'column',
-                  animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`,
-                  animationDelay: isSectionVisible ? `${index * 0.1}s` : '0s'
+                  border: '1px solid rgba(255, 107, 53, 0.2)'
                 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   if (service.id === 'mvp') {
                     navigate('/mvp-services');
@@ -188,14 +193,21 @@ const Coreservices = () => {
               >
                 {/* Icon and Title Section */}
                 <div style={{
-                  fontSize: 'clamp(2rem, 4vw, 3rem)',
                   marginBottom: '20px',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '15px',
                   flexWrap: 'wrap'
                 }}>
-                  <span>{service.icon}</span>
+                  <service.icon style={{ 
+                    width: 'clamp(2.5rem, 5vw, 3.5rem)', 
+                    height: 'clamp(2.5rem, 5vw, 3.5rem)',
+                    color: service.id === 'ai' ? '#9333ea' :
+                           service.id === 'mvp' ? '#f97316' :
+                           service.id === 'resource' ? '#059669' :
+                           service.id === 'web' ? '#3b82f6' :
+                           '#ec4899'
+                  }} />
                   <div style={{
                     width: 'clamp(40px, 8vw, 60px)',
                     height: '4px',
@@ -213,14 +225,14 @@ const Coreservices = () => {
                   fontWeight: '700',
                   marginBottom: '15px',
                   fontFamily: 'var(--font-sans)',
-                  color: '#121D1A'
+                  color: 'var(--color-text-primary-dark)'
                 }}>
                   {service.title}
                 </h3>
 
                 <p style={{
                   fontSize: 'clamp(0.9rem, 2vw, 1rem)',
-                  color: '#666666',
+                  color: 'var(--color-text-secondary-dark)',
                   lineHeight: '1.6',
                   marginBottom: '25px',
                   fontFamily: 'var(--font-sans)'
@@ -238,7 +250,7 @@ const Coreservices = () => {
                   {service.features.map((feature, idx) => (
                     <li key={idx} style={{
                       padding: '8px 0',
-                      color: '#666666',
+                      color: 'var(--color-text-secondary-dark)',
                       fontSize: 'clamp(0.85rem, 1.8vw, 0.95rem)',
                       display: 'flex',
                       alignItems: 'flex-start',
@@ -249,7 +261,7 @@ const Coreservices = () => {
                         width: '6px',
                         height: '6px',
                         borderRadius: '50%',
-                        background: '#ff6b35',
+                        background: 'var(--color-text-primary-dark)',
                         flexShrink: 0,
                         marginTop: '8px'
                       }}></span>
@@ -291,7 +303,7 @@ const Coreservices = () => {
                 >
                   {service.buttonText}
                 </button>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
